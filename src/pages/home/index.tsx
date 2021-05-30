@@ -3,7 +3,7 @@ import './index.less'
 
 const Home: React.FC = () => (
   <div className="wrapper">
-    home page
+    home pages
   </div>
   )
 
