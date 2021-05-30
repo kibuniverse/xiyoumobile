@@ -1,5 +1,6 @@
 import Home from './pages/home'
 import Wiki from './pages/wiki'
+import Member from './pages/member'
 
 export const menu = [
   {
@@ -13,5 +14,11 @@ export const menu = [
     path: '/wiki',
     title: 'wiki',
     component: Wiki,
-  }
+  },
+  {
+    key: 'member',
+    path: '/member',
+    title: '成员',
+    component: Member,
+  },
 ]
