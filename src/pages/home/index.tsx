@@ -10,7 +10,6 @@ const Home: React.FC = () => {
   // 获取activity
   React.useEffect(() => {
     fetchActivityList({ size: 5 }).then(res => {
-      console.log(res)
       if (res) {
         setList(res.dataList)
         return
@@ -20,7 +19,6 @@ const Home: React.FC = () => {
   }, [])
 
   const handleClickActivity = (id: number) => () => {
-    console.log(id)
     history.push(`/activity-detail?id=${id}`)
   }
 
