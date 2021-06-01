@@ -1,3 +1,45 @@
 .wrapper {
-  color: aqua;
+  .content-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+    color: #000;
+    background-image: linear-gradient(130deg,#dacdc4,#addae07a 41.07%,#5b71f1 76.05%)
+  }
+  .content {
+    width: 80%;
+    margin: auto;
+  }
+  .activity-item {
+    display: flex;
+    margin: 100px 0;
+  }
+  .left {
+    margin-right: 150px;
+  }
+  .activity-item-img {
+    width: 400px;
+    height: 400px;
+    border-radius: 4px;
+    object-fit: content;
+  }
+  .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 100px;
+  }
+  .title a {
+    color: #000;
+  }
+  .title a:hover {
+    color: #5b71f1;
+  }
+  .summary {
+    font-size: 20px;
+    font-weight: 400;
+  }
 }
+

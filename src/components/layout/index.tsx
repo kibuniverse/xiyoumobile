@@ -11,7 +11,7 @@ const Layout: React.FC = () => (
         <Route key={item.key} exact path={item.path}>
           {withRouter(item.component)}
         </Route>
-      ))}
+        ))}
     </Switch>
   </BrowserRouter>
 )

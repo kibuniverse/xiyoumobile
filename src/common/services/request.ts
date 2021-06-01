@@ -11,12 +11,8 @@ export const request = <R>(url: string, method = 'GET', data: any = {}, headers:
   method = method.toUpperCase()
   url = (base || baseUrl) + url
 
-  const LIGHT_KEY = 'light:ttmr6y:local-session'
-
   headers = {
     'X-Requested-With': 'XMLHttpRequest',
-      'x-larkcloud-user-v1': localStorage.getItem(LIGHT_KEY) || '',
-      'x-user-name': localStorage.getItem('x-user-name') || '',
     ...headers,
   }
 

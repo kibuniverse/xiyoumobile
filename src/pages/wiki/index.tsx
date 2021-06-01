@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { fetchWikiList } from '../../api/wiki'
+import { fetchWikiList } from '../../api/wiki/interface'
 
 const Wiki: React.FC = () => {
   const [count, setCount] = React.useState(1)
