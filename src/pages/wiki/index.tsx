@@ -2,16 +2,15 @@ import * as React from 'react'
 import { fetchWikiList } from '../../api/wiki/interface'
 
 const Wiki: React.FC = () => {
-  const [count, setCount] = React.useState(1)
+  const [dataList, setDataList] = React.useState<any[]>([])
   React.useEffect(() => {
     fetchWikiList().then(res => {
-      console.log(res)
+      setDataList(res?.dataList || [])
     })
   }, [])
   return (
     <div>
       Wiki page
-      {count}
     </div>
   )
 }
