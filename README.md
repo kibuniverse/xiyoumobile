@@ -21,3 +21,4 @@ hello-world
 
 commit 进行了基本的检查配置
 建议使用 `npm run commit` 进行提交
+// test
