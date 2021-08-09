@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { menu } from '../../menu';
 import Header from '../header';
+import Footer from '../footer'
 
 const Layout: React.FC = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const Layout: React.FC = () => (
         </Route>
       ))}
     </Switch>
+    <Footer/>
   </BrowserRouter>
 );
 
