@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { WechatFilled } from '@ant-design/icons'
 import './index.less'
 
 
 const Footer: React.FC = () => {
     const nowTime =new Date();
+    const [iconState,setIconState] = useState(false)
     return(
         <footer className="footerAll">
             <div className="footer_wrap">
@@ -21,8 +24,11 @@ const Footer: React.FC = () => {
                         </div>
                         <div className="relation">
                             <span className="title">官方微信</span>
-                            <span className="text">315602317</span>
+                            <span className="text" onMouseOver = {()=>setIconState(true)} onMouseLeave={()=>{setIconState(false)}}>
+                                <WechatFilled/>
+                            </span>
                         </div>
+                        <img className={iconState?"qr_code":"null"} src="https://mobile.xupt.edu.cn/src/images/wxqr.jpg"></img>
                     </div>
                     <div className="footer_right">
                         <Link to=''>
