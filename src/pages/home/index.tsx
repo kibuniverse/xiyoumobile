@@ -1,26 +1,26 @@
-import * as React from 'react'
-import { message } from 'antd'
-import { useHistory } from 'react-router-dom'
-import { fetchActivityList } from '../../api/activity'
-import './index.less'
+import * as React from 'react';
+import { message } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { fetchActivityList } from '../../api/activity';
+import './index.less';
 
 const Home: React.FC = () => {
-  const [list, setList] = React.useState<Record<string, string | number>[]>([])
-  const history = useHistory()
+  const [list, setList] = React.useState<Record<string, string | number>[]>([]);
+  const history = useHistory();
   // 获取activity
   React.useEffect(() => {
-    fetchActivityList({ size: 5 }).then(res => {
+    fetchActivityList({ size: 5 }).then((res) => {
       if (res) {
-        setList(res.dataList)
-        return
+        setList(res.dataList);
+        return;
       }
-      message.error('服务器游离中...')
-    })
-  }, [])
+      message.error('服务器游离中...');
+    });
+  }, []);
 
   const handleClickActivity = (id: number) => () => {
-    history.push(`/activity-detail?id=${id}`)
-  }
+    history.push(`/activity-detail?id=${id}`);
+  };
 
   return (
     <div className="wrapper">
@@ -29,8 +29,8 @@ const Home: React.FC = () => {
         <div>西邮移动应用开发实验室</div>
       </div>
       <div className="content">
-        {list.map(item => {
-          const { id, img, summary, title } = item
+        {list.map((item) => {
+          const { id, img, summary, title } = item;
           return (
             <div key={id} className="activity-item">
               <div className="left">
@@ -42,12 +42,16 @@ const Home: React.FC = () => {
                   ...
                 </div>
               </div>
-              <img className="activity-item-img" alt="活动背景图" src={img as string} />
+              <img
+                className="activity-item-img"
+                alt="活动背景图"
+                src={img as string}
+              />
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
-export default Home
+  );
+};
+export default Home;
