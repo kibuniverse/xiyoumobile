@@ -10,6 +10,7 @@ export const menu = [
     path: '/',
     title: '主页',
     component: Home,
+    opacity: false,
   },
   {
     key: 'wiki',

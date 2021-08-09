@@ -1,13 +1,16 @@
 @import '../../common/theme.less';
 .header {
-  &.opcaity{
-    background: none;
+  &.hidden{
+    transform: translateY(-70px);
+  }
+  &.opacity{
+    background: #fff;
     .menu-item {
-      color: white;
+      color: black;
     }
-    .logo{
-      background-position: -230px 0px;
-    }
+   .logo{
+    background-position: 0px 0px;
+   }
   }
   display: flex;
   text-align: center;
@@ -18,7 +21,10 @@
   width: 100%;
   z-index: 10;
   padding: 10px 0 0 100px;
-  background-color: #fff;
+  background-color: none;
+  overflow: hidden;
+  transition: transform 0.2s ease-out;
+  transform: translateY(0);
   .menu-router {
     flex: 1;
     display: flex;
@@ -29,7 +35,7 @@
   }
   .menu-item {
     font-size: 15px;
-    color: black;
+    color: white;
     display: inline-block;
   }
   .menu-item::after {
@@ -50,7 +56,7 @@
     width: 230px;
     height: 28px;
     background-image: url("https://mobile.xupt.edu.cn/static/images/bg.30c200.png");
-    // background-position-y: ;
+    background-position: -230px 0px;
   }
   a {
     color: antiquewhite;
