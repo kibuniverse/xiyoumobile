@@ -7,7 +7,7 @@ import ActivityDetail from './components/activity-detail'
 export const menu = [
   {
     key: 'home',
-    path: '/home',
+    path: '/',
     title: '主页',
     component: Home,
   },

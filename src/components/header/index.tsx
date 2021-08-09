@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Avatar } from 'antd';
 import { filter } from 'remeda';
+import { debounce } from 'lodash';
+
 import { menu } from '../../menu';
 import './index.less';
 
-const header = {
-  backdropFilter: 'blur(3px)',
-  background: 'border-box border-box rgba(255, 255, 255, 0.25)',
-};
 interface Menu {
   key: string;
   path: string;
@@ -18,28 +16,23 @@ interface Menu {
 }
 
 const Header: React.FC = () => {
-  const [selectKey, setSelectKey] = React.useState('');
+  const [key, setKey] = React.useState('home');
+
   const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(
     menu,
   );
-  const routerMenu: Menu[] = filter((menuItem: Menu) =>
-    Boolean(menuItem.notInMenu))(menu);
   return (
-    <header className="header" style={header}>
-      <div className="logo">
-        <Avatar
-          size="large"
-          src="https://mobile.xupt.edu.cn/res/static/wiki_default.jpg"
-        />
-      </div>
+    <header className={`header ${key === 'home' ? 'opcaity' : ''}`}>
+      <div className="logo" />
       <div className="menu-router">
         {realMenu.map((item) => (
           <Link
             className="menu-item"
-            style={{ color: selectKey === item.key ? '#1890ff' : '#000' }}
-            onClick={() => setSelectKey(item.key)}
             key={item.key}
             to={item.path}
+            onClick={() => {
+            setKey(item.key)
+          }}
           >
             {item.title}
           </Link>
