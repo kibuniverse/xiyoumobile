@@ -1,17 +1,51 @@
 import * as React from 'react';
-import { message } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { Carousel, Divider, message } from 'antd';
+import { Link, useHistory } from 'react-router-dom';
 import { fetchActivityList } from '../../api/activity';
 import './index.less';
+import { ActivityHome } from '../../components/activityHome';
+import { WikiItem } from '../../components/wikiItem';
+import { fetchWikiList } from '../../api/wiki/interface';
+import { IWikiItem } from '../../api/wiki';
+import { GroupIntroduce } from '../../components/groupIntroduce';
+import { IActivityItem } from '../../api/activity/interface';
+import { WikiHome } from '../../components/wikiHome';
+
+const MainCarousel: React.FC = () => (
+  <div className="content-header">
+    <Carousel adaptiveHeight>
+      <div className="carousel-item item1" />
+      <div className="carousel-item item2" />
+    </Carousel>
+  </div>
+);
+
+const MoreAbout: React.FC<{ to: string }> = (props) => (
+  // eslint-disable-next-line react/destructuring-assignment
+  <Link to={props.to} className="moreAbout">
+    了解更多
+  </Link>
+);
 
 const Home: React.FC = () => {
-  const [list, setList] = React.useState<Record<string, string | number>[]>([]);
+  const [activityList, setActivityList] = React.useState<IActivityItem[]>([]);
+  const [wikiList, setWikiList] = React.useState<IWikiItem[]>([]);
   const history = useHistory();
   // 获取activity
   React.useEffect(() => {
-    fetchActivityList({ size: 5 }).then((res) => {
+    fetchActivityList({ size: 6 }).then((res) => {
       if (res) {
-        setList(res.dataList);
+        console.log(res.dataList);
+        setActivityList(res.dataList);
+        return;
+      }
+      message.error('服务器游离中...');
+    });
+    fetchWikiList({ size: 6 }).then((res) => {
+      console.log(res);
+      if (res) {
+        console.log(res.dataList);
+        setWikiList(res.dataList);
         return;
       }
       message.error('服务器游离中...');
@@ -23,33 +57,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="content-header">
-        <div>xiyouMobile</div>
-        <div>西邮移动应用开发实验室</div>
-      </div>
+    <div className="home-wrapper">
+      <MainCarousel />
       <div className="content">
-        {list.map((item) => {
-          const { id, img, summary, title } = item;
-          return (
-            <div key={id} className="activity-item">
-              <div className="left">
-                <div className="title">
-                  <a onClick={handleClickActivity(id as number)}>{title}</a>
-                </div>
-                <div className="summary">
-                  {summary}
-                  ...
-                </div>
-              </div>
-              <img
-                className="activity-item-img"
-                alt="活动背景图"
-                src={img as string}
-              />
-            </div>
-          );
-        })}
+        <GroupIntroduce />
+        <ActivityHome {...activityList} />
+        <WikiHome {...wikiList} />
       </div>
     </div>
   );

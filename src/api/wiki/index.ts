@@ -1,4 +1,4 @@
-interface DataItem {
+export interface IWikiItem {
   id: number
   author: {
       id: number
@@ -17,6 +17,6 @@ interface DataItem {
   pubTime: string
   explore: number
 }
-export interface WikiListRes {
-  dataList: DataItem[]
+export interface FetchWikiListReq {
+  size: number;
 }

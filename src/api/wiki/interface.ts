@@ -1,4 +1,4 @@
 import { get } from '../../common/services'
-import { WikiListRes } from '.'
+import { FetchWikiListReq, IWikiItem } from '.'
 
-export const fetchWikiList = () => get<WikiListRes>('/api/wiki/list/all/2?size=10')
+export const fetchWikiList = (req:FetchWikiListReq) => get<{dataList:IWikiItem[]}>(`/api/wiki/list/all/2?size=${req.size}`)
