@@ -1,15 +1,7 @@
 import { get } from '../../common/services'
 import { FetchWikiListReq, IWikiItem } from '.'
+import { IPageInfo } from '../../common/Inteface';
 
-export interface IPageInfo {
-  everyPage: number;
-  totalCount: number;
-  currentpage: number;
-  beginIndex: number;
-  hasPrePage: boolean;
-  hasNextPage: boolean;
-  totalPage: number;
-}
 export interface IGroupType {
   count: number,
   id: number,

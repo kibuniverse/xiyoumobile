@@ -1,12 +1,9 @@
 import { Menu, message, Pagination, Spin } from 'antd';
 import * as React from 'react';
-import { IWikiItem } from '../../api/wiki';
-import {
-  fetchWikiGroup,
-  fetchWikiList,
-  IGroupType,
-} from '../../api/wiki/interface';
-import { WikiHome } from '../../components/wikiHome';
+import { fetchActivityList } from '../../api/activity';
+import { IActivityItem } from '../../api/activity/interface';
+
+import { ActivityHome } from '../../components/activityHome';
 import './index.less';
 
 const parseGroupName = (key: number) => {
@@ -20,25 +17,25 @@ const parseGroupName = (key: number) => {
     5: '后台',
   }[key];
 };
-const Wiki: React.FC = () => {
-  const [dataList, setDataList] = React.useState<IWikiItem[]>([]);
+const Activity: React.FC = () => {
+  const [dataList, setDataList] = React.useState<IActivityItem[]>([]);
   const [pageNum, setPageNum] = React.useState(1);
   const [totalCount, setTotalCount] = React.useState(1);
   const [selectGroup, setSelectGroup] = React.useState(['all']);
-  const [group, setGroup] = React.useState<IGroupType[] | null>(null);
+  // const [group, setGroup] = React.useState<IGroupType[] | null>(null);
   const [loading, setLoading] = React.useState(true);
-  React.useEffect(() => {
-    fetchWikiGroup().then((res) => {
-      setGroup(res || null);
-      setLoading(false);
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   fetchactivityGroup().then((res) => {
+  //     setGroup(res || null);
+  //     setLoading(false);
+  //   });
+  // }, []);
   React.useEffect(() => {
     setLoading(true);
-    fetchWikiList({
+    fetchActivityList({
       size: 6,
-      pageNum,
-      type: selectGroup[0] === 'all' ? undefined : selectGroup[0],
+      // pageNum,
+      // type: selectGroup[0] === 'all' ? undefined : selectGroup[0],
     }).then((res) => {
       setLoading(false);
       if (res) {
@@ -50,37 +47,16 @@ const Wiki: React.FC = () => {
     });
   }, [selectGroup, pageNum]);
   return (
-    <div className="wiki">
-      <div className="wiki-header">
-        <h3 className="wiki-title">成员风采</h3>
-        <p className="wiki-describe">正因为有你们，3G才与众不同</p>
+    <div className="activity">
+      <div className="activity-header">
+        <h3 className="activity-title">成员风采</h3>
+        <p className="activity-describe">正因为有你们，3G才与众不同</p>
       </div>
       <Spin spinning={loading}>
-        <div className="wiki-body">
-          <div className="wiki-select">
-            <Menu
-              mode="horizontal"
-              defaultSelectedKeys={['all']}
-              selectedKeys={selectGroup}
-              onSelect={(item) => {
-                setSelectGroup([item.key as string]);
-                setPageNum(1);
-              }}
-            >
-              <Menu.Item key="all">全部</Menu.Item>
-              {group?.map(
-                (item) =>
-                  parseGroupName(item.id) && (
-                    <Menu.Item key={item.id}>
-                      {parseGroupName(item.id)}
-                    </Menu.Item>
-                  ),
-              )}
-            </Menu>
-          </div>
-          <WikiHome {...dataList} />
+        <div className="activity-body">
+          <ActivityHome {...dataList} />
         </div>
-        <div className="wiki-bottom">
+        <div className="activity-bottom">
           <Pagination
             current={pageNum}
             total={totalCount}
@@ -95,4 +71,4 @@ const Wiki: React.FC = () => {
   );
 };
 
-export default Wiki;
+export default Activity;
