@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Avatar } from 'antd';
 import { filter } from 'remeda';
-import { debounce } from 'lodash';
+import { debounce, isUndefined } from 'lodash';
 
 import { menu } from '../../menu';
 import './index.less';
@@ -13,16 +13,48 @@ interface Menu {
   title: string;
   component: React.FC<any>;
   notInMenu?: undefined | boolean;
+  opacity?: boolean;
 }
 
-const Header: React.FC = () => {
-  const [key, setKey] = React.useState('home');
+const useControlHeader = (initOpacity: boolean) => {
+  const [scrollerHeight, setScrollerHeight] = React.useState(0);
+  const [hidden, setHidden] = React.useState(false);
+  const [opacity, setOpacity] = React.useState(initOpacity);
+  React.useEffect(() => {
+    const fn = () => {
+      setScrollerHeight((item) => {
+        if (item > document.documentElement.scrollTop) {
+          setHidden(false);
+        } else {
+          setHidden(true);
+        }
+        return document.documentElement.scrollTop;
+      });
+    };
+    document.addEventListener('scroll', fn);
+    return () => {
+      document.removeEventListener('scroll', fn);
+    };
+  }, []);
+  return { hidden, scrollerHeight, opacity, setOpacity };
+};
 
+const Header: React.FC = () => {
+  // const [key, setKey] = React.useState('home');
   const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(
     menu,
   );
+  const location = useLocation();
+  const res = realMenu.find((item) => item.path === location.pathname)?.opacity;
+  const { hidden, scrollerHeight, opacity, setOpacity } = useControlHeader(
+    typeof res === 'undefined' ? true : res,
+  );
   return (
-    <header className={`header ${key === 'home' ? 'opcaity' : ''}`}>
+    <header
+      className={`header ${!opacity && scrollerHeight === 0 ? '' : 'opacity'} ${
+        hidden ? 'hidden' : ''
+      }`}
+    >
       <div className="logo" />
       <div className="menu-router">
         {realMenu.map((item) => (
@@ -31,8 +63,8 @@ const Header: React.FC = () => {
             key={item.key}
             to={item.path}
             onClick={() => {
-            setKey(item.key)
-          }}
+              setOpacity(typeof item.opacity === 'undefined' ? true : item.opacity);
+            }}
           >
             {item.title}
           </Link>
