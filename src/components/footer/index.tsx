@@ -11,9 +11,14 @@ const Footer: React.FC = () => {
     return(
         <footer className="footerAll">
             <div className="footer_wrap">
-                <h3>关于我们</h3>
+                <div className="footer_top">
+                    <Link to=''>
+                        <div className="footer_top_logo"></div>
+                    </Link>
+                </div>
                 <div className="middle_box">
-                    <div className="footer_left">
+                    <h3>关于我们</h3>
+                    <div className="footer_relation">
                         <div className="relation">
                             <span className="title">新浪微博</span>
                             <span className="text">@西邮移动应用开发实验室</span>
@@ -30,11 +35,7 @@ const Footer: React.FC = () => {
                         </div>
                         <img className={iconState?"qr_code":"null"} src="https://mobile.xupt.edu.cn/src/images/wxqr.jpg"></img>
                     </div>
-                    <div className="footer_right">
-                        <Link to=''>
-                            <div className="footer_right_logo"></div>
-                        </Link>
-                    </div>
+                    
                 </div>
                 <div className="footer_content text_content">
                     Copydight @
