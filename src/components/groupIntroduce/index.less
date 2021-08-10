@@ -1,16 +1,19 @@
 .group-introduce{
   width: 1200px;
+  margin: 100px auto;
   display: flex;
-  justify-content: space-between;
-  margin: 50px 80px;
   align-items: center;
+  justify-content: space-around;
   h2{
     word-break: break-all;
     width: 32px;
     font-size: 32px;
     line-height: 32px;
     text-align: center;
-    margin-left: 120px;
+    display: inline-block;
+  }
+  .group-box{
+    display: inline-block;
   }
   .group-wrapper{
     display: flex;
@@ -23,7 +26,10 @@
       position: relative;
     }
     .group-slogen{
-      writing-mode: vertical-lr;
+      word-break: break-all;
+      width: 22px;
+      line-height: 24px;
+      text-align: center;
       position: absolute;
       left: 20px;
       top: 30px;
@@ -31,7 +37,10 @@
       margin: 0;
     }
     .group-title{
-      writing-mode: vertical-lr;
+      word-break: break-all;
+      width: 14px;
+      font-size: 14px;
+      line-height: 16px;
       position: absolute;
       right: 20px;
       bottom: 30px;

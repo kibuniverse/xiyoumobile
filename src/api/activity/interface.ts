@@ -11,4 +11,12 @@ export interface IActivityItem {
   summary: string;
   pubTime: string;
   explore: number;
+  id:number;
+}
+export interface IActivityDetail{
+  title:string;
+  img:string;
+  content:string;
+  pubTime:string;
+  explore:number;
 }

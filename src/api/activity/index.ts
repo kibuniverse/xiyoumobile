@@ -1,5 +1,5 @@
 import { get } from '../../common/services'
-import { FetchActivityListReq, FetchActivityListRes } from './interface'
+import { FetchActivityListReq, FetchActivityListRes, IActivityDetail } from './interface'
 
 /**
  *
@@ -7,3 +7,4 @@ import { FetchActivityListReq, FetchActivityListRes } from './interface'
  * @returns
  */
 export const fetchActivityList = (params: FetchActivityListReq) => get<FetchActivityListRes>('/api/activity/list/1', params)
+export const fetchActivityDetail = (id:string) => get<IActivityDetail>(`/api/activity/detail/${id}`)

@@ -1,17 +1,20 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { FC } from 'react';
 import './index.less';
+import { Link } from 'react-router-dom';
 import { IActivityItem } from '../../api/activity/interface';
 
 const Item: FC<IActivityItem & { flex?: number }> = (props) => (
-  <div className="item-wrapper" style={{ flex: props.flex }}>
-    <img src={props?.img} alt="活动图片" />
-    <span className="time">{props.pubTime?.slice(0, 10)}</span>
-    <div className="item-content">
-      <h3 className="item-title">{props?.title}</h3>
-      <p className="item-summary">{props?.summary}</p>
+  <Link to={`/activity-detail/${props.id}`}>
+    <div className="item-wrapper" style={{ flex: props.flex }}>
+      <img src={props?.img} alt="活动图片" />
+      <span className="time">{props.pubTime?.slice(0, 10)}</span>
+      <div className="item-content">
+        <h3 className="item-title">{props?.title}</h3>
+        <p className="item-summary">{props?.summary}</p>
+      </div>
     </div>
-  </div>
+  </Link>
 );
 
 export const ActivityHome: FC<IActivityItem[]> = (props) => (

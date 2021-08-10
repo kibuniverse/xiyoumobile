@@ -11,6 +11,7 @@
   .wiki-row {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
   }
   .item-wrapper {
     background-color: #fff;
@@ -23,25 +24,35 @@
       color: @text-secondary;
       font-size: 12px;
     }
-    .item-title{
+    .item-title {
       word-break: keep-all;
       overflow: hidden;
       text-overflow: ellipsis;
       padding-top: 20px;
     }
-    .item-user {
+    .item-bottom {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      .item-user {
+        flex: 1;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .name {
+          color: #333;
+        }
+        .group {
+          display: inline-block;
+          width: 60px;
+          text-align: center;
+          background-color: #e5efff;
+        }
+      }
       .views {
         color: @text-secondary;
         font-size: 12px;
-      }
-      .group {
-        display: inline-block;
-        width: 60px;
-        text-align: center;
-        background-color: #e5efff;
+        margin-right: 15px;
       }
     }
   }
