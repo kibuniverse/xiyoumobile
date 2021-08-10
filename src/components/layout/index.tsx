@@ -8,7 +8,7 @@ const Layout: React.FC = () => (
     <Header />
     <Switch>
       {menu.map((item) => (
-        <Route key={item.key} exact path={item.path}>
+        <Route key={item.key} exact={typeof item.exact !=='undefined' ?item.exact :true} path={item.path}>
           {withRouter(item.component)}
         </Route>
       ))}

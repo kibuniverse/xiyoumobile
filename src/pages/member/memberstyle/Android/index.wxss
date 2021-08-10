@@ -1,0 +1,63 @@
+.groupPerson .groupMessage {
+  background-color: #fafafa;
+  margin: auto;
+  width: 85%;
+  height: 500px;
+}
+.groupPerson .groupMessage .personMessage:hover {
+  background-color: #F2F3F5;
+}
+.groupPerson .groupMessage .personMessage:hover .icon {
+  transform: translate(50%, -50%);
+}
+.groupPerson .groupMessage .personMessage {
+  float: left;
+  width: 20%;
+  height: 260px;
+  padding-left: 32px;
+  box-sizing: border-box;
+  position: relative;
+  background: #FBFBFB;
+  cursor: pointer;
+}
+.groupPerson .groupMessage .personMessage .mess {
+  float: left;
+  margin-top: 105px;
+  width: 100%;
+}
+.groupPerson .groupMessage .personMessage .mess .name {
+  font-size: 20px;
+  line-height: 30px;
+  color: #0b24b8;
+  margin-bottom: 10px;
+}
+.groupPerson .groupMessage .personMessage .mess .job {
+  float: left;
+  min-width: 160px;
+}
+.groupPerson .groupMessage .personMessage .mess .job p {
+  width: 100%;
+  font-size: 14px;
+  line-height: 21px;
+  color: #5f6464;
+}
+.groupPerson .groupMessage .personMessage .pic {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.groupPerson .groupMessage .personMessage .pic img {
+  width: 120px;
+  height: 120px;
+  border: 0;
+  vertical-align: bottom;
+}
+.groupPerson .groupMessage .personMessage .pic i {
+  width: 28px;
+  height: 28px;
+  background-color: #0b24b8;
+  position: absolute;
+  left: -14px;
+  bottom: -14px;
+  transition: width 0.3s , height 0.5s, transform 0.5s;
+}

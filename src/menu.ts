@@ -22,6 +22,7 @@ export const menu = [
     path: '/member',
     title: '成员',
     component: Member,
+    exact:false
   },
   {
     key: 'join',

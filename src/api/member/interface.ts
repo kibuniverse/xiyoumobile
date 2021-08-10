@@ -4,7 +4,7 @@ export interface MemberInfo {
   team: string
   signature: string | null
   company: string | null
-  graduateImg: string | null
+  mienImg: string | null
 }
 
 export interface GetMemberInfoRes {
