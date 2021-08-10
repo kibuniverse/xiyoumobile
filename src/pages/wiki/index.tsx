@@ -4,7 +4,7 @@ import { fetchWikiList } from '../../api/wiki/interface';
 const Wiki: React.FC = () => {
   const [dataList, setDataList] = React.useState<any[]>([]);
   React.useEffect(() => {
-    fetchWikiList().then((res) => {
+    fetchWikiList({ size: 6 }).then((res) => {
       setDataList(res?.dataList || []);
     });
   }, []);

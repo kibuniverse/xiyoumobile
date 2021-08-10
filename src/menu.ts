@@ -2,7 +2,9 @@ import Home from './pages/home'
 import Wiki from './pages/wiki'
 import Member from './pages/member'
 import Join from './pages/join'
-import ActivityDetail from './components/activity-detail'
+import ActivityDetail from './pages/activity-detail'
+import { WikiDetail } from './components/common'
+import UserDetail from './pages/user-detail'
 
 export const menu = [
   {
@@ -11,6 +13,12 @@ export const menu = [
     title: '主页',
     component: Home,
     opacity: false,
+  },
+  {
+    key: 'activity',
+    path: '/activity',
+    title: '动态',
+    component: Wiki,
   },
   {
     key: 'wiki',
@@ -35,6 +43,20 @@ export const menu = [
     path: '/activity-detail',
     title: '活动详细页面',
     component: ActivityDetail,
+    notInMenu: true,
+  },
+  {
+    key: 'wikiDetail',
+    path: '/wiki-detail',
+    title: 'wiki详细页面',
+    component: WikiDetail,
+    notInMenu: true,
+  },
+  {
+    key: 'UserDetail',
+    path: '/user-detail',
+    title: '用户详细页面',
+    component: UserDetail,
     notInMenu: true,
   },
 ]
