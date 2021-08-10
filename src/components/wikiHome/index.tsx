@@ -18,14 +18,14 @@ import { IWikiItem } from '../../api/wiki/index';
 // );
 const Item:FC<IWikiItem> = (props) => (
   <div className="item-wrapper">
-    <img src={props.img} alt="wiki图片" />
-    <h3 className="item-title">{props.title}</h3>
-    <Divider className="item-time">{props.pubTime}</Divider>
+    <img src={props?.img} alt="wiki图片" />
+    <h3 className="item-title">{props?.title}</h3>
+    <Divider className="item-time">{props?.pubTime}</Divider>
     <div className="item-user">
       <Avatar src={props.author?.portrait} />
-      <span>{props.author.realName}</span>
-      <span className="group">{props.author.team}</span>
-      <span className="views">{`访问量${props.explore}`}</span>
+      <span>{props.author?.realName}</span>
+      <span className="group">{props.author?.team}</span>
+      <span className="views">{`访问量${props?.explore}`}</span>
     </div>
   </div>
 )

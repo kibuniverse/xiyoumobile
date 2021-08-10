@@ -5,11 +5,11 @@ import { IActivityItem } from '../../api/activity/interface';
 
 const Item: FC<IActivityItem & { flex?: number }> = (props) => (
   <div className="item-wrapper" style={{ flex: props.flex }}>
-    <img src={props.img} alt="活动图片" />
+    <img src={props?.img} alt="活动图片" />
     <span className="time">{props.pubTime?.slice(0, 10)}</span>
     <div className="item-content">
-      <h3 className="item-title">{props.title}</h3>
-      <p className="item-summary">{props.summary}</p>
+      <h3 className="item-title">{props?.title}</h3>
+      <p className="item-summary">{props?.summary}</p>
     </div>
   </div>
 );
