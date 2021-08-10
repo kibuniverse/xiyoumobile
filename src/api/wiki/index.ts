@@ -19,4 +19,6 @@ export interface IWikiItem {
 }
 export interface FetchWikiListReq {
   size: number;
+  pageNum?:number;
+  type?:string;
 }
