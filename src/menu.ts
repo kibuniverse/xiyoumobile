@@ -2,6 +2,7 @@ import Home from './pages/home'
 import Wiki from './pages/wiki'
 import Member from './pages/member'
 import Join from './pages/join'
+import Activity from './pages/activity'
 import ActivityDetail from './pages/activity-detail'
 import { WikiDetail } from './components/common'
 import UserDetail from './pages/user-detail'
@@ -18,7 +19,7 @@ export const menu = [
     key: 'activity',
     path: '/activity',
     title: '动态',
-    component: Wiki,
+    component: Activity,
   },
   {
     key: 'wiki',
