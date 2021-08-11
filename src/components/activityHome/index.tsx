@@ -1,8 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { FC } from 'react';
-import './index.less';
-import { Link } from 'react-router-dom';
-import { IActivityItem } from '../../api/activity/interface';
+import React, { FC } from "react";
+import "./index.less";
+import { Link } from "react-router-dom";
+import { IActivityItem } from "../../api/activity/interface";
 
 const Item: FC<IActivityItem & { flex?: number }> = (props) => (
   <Link to={`/activity-detail/${props.id}`}>
@@ -16,21 +16,31 @@ const Item: FC<IActivityItem & { flex?: number }> = (props) => (
     </div>
   </Link>
 );
+interface option {
+  row?: number;
+  title?: string;
+}
 
-export const ActivityHome: FC<IActivityItem[]> = (props) => (
-  <div className="activity-wrapper">
-    <h3 className="activity-title">小组 · 动态</h3>
-    <div className="activity-content">
-      <div className="activity-row">
-        <Item {...props[0]} />
-        <Item {...props[1]} />
-        <Item {...props[2]} />
-      </div>
-      <div className="activity-row">
-        <Item {...props[3]} />
-        <Item {...props[4]} />
-        <Item {...props[5]} />
+export const ActivityHome: FC<IActivityItem[] & option> = (props) => {
+  const row = props.row || 2;
+  const title = props.title || "小组 · 动态";
+  const produceItem = () => {
+    let res=[];
+    for (let i = 0; i < row; i++) {
+      res.push(<div className="activity-row">
+      <Item {...props[i*row+0]} />
+      <Item {...props[i*row+1]} />
+      <Item {...props[i*row+2]} />
+    </div>)
+    }
+    return res;
+  };
+  return (
+    <div className="activity-wrapper">
+      <h3 className="activity-title">{title}</h3>
+      <div className="activity-content">
+        {produceItem()}
       </div>
     </div>
-  </div>
-);
+  );
+};
