@@ -1,9 +1,44 @@
 import * as React from 'react'
+import { useParams } from 'react-router'
+import { fetchWikiDetail } from '../../api/wiki/interface'
+import { IWikeDetail } from '../../api/wiki'
+import { message } from '_antd@4.16.11@antd'
+import './index.less'
 
 const WikiDetail: React.FC = () => {
-  const [activityInfo, setActivityInfo] = React.useState({})
+  const { id } = useParams<{id:string}>();
+  const [data,setData] = React.useState<IWikeDetail|null>(null);
+  React.useEffect(() => {
+    console.log('active');
+    fetchWikiDetail(id).then(res => {
+      if (res) {
+        console.log(res);
+        setData(res);
+        return;
+      }
+        message.error('服务器开小差了...')
+    })
+  },[])
   return (
-    <div>信息</div>
+    <div className="wiki_detail_wrap">
+      <div className="wiki_detail_box">
+        <h1 className="wiki_detail_title_text">{data?.title}</h1>
+        <span className="wiki_detail_img">
+          <img src={data?.img} alt="" />
+          <span className="wiki_detail_expolre_box">
+            <div className="wiki_detail_expolre">{data?.explore}</div>
+            <span className="wiki_detail_explore_text">浏览量</span>
+          </span>
+        </span>
+        <div className="wiki_detail_messagr_box">
+          <span>{data?.author.realName}</span>
+          <span>{data?.author.team}</span>
+          <span>{data?.pubTime}</span>
+        </div>
+        <hr />
+        <div dangerouslySetInnerHTML={{__html:data?.content||""}} className="wiki-activity_txt"></div>
+      </div>
+    </div>
   )
 }
 
