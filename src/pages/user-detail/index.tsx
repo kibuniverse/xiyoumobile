@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useParams } from 'react-router'
 import { getMemberDetail } from '../../api/member/index'
 import { GetMemberMessage } from '../../api/member/interface'
+import { message } from '_antd@4.16.11@antd'
 
 const UserDetail: React.FC = () => {
   // const [activityInfo, setActivityInfo] = React.useState({})
