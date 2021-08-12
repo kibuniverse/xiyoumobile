@@ -12,7 +12,6 @@ const WikiDetail: React.FC = () => {
     console.log('active');
     fetchWikiDetail(id).then(res => {
       if (res) {
-        console.log(res);
         setData(res);
         return;
       }

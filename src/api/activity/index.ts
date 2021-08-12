@@ -7,4 +7,4 @@ import { FetchActivityListReq, FetchActivityListRes, IActivityDetail } from './i
  * @returns
  */
 export const fetchActivityList = (params: FetchActivityListReq) => get<FetchActivityListRes>('/api/activity/list/1', params)
-export const fetchActivityDetail = (id:string) => get<IActivityDetail>(`/api/activity/detail/${id}`)
+export const fetchActivityDetail = (id: string) => get<IActivityDetail>(`/api/activity/detail/${id}`)
