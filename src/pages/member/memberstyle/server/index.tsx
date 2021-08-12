@@ -24,7 +24,7 @@ const Member: React.FC = () => {
   return (
     <div className="groupPerson">
         <div className="groupTheme">Server组成员</div>
-        <div className="groupMessage"
+        <div className="groupMessageS"
         >
           {grouplist.map((item) => {
           const {name, team, mienImg} = item;

@@ -19,22 +19,26 @@ const Member: React.FC = () => {
     })
   }, [])
 
-  
+
   return (
     <div className="graduateMess">
       <div className="graduateWrapper">
         {graduatelist.map((item) => {
-          const {name, team, graduateImg,company, signature} = item;
+          const {username, name, team, graduateImg,company, signature} = item;
           return(
-            <div className="wrapperMess">
-              <div className="wrapperPersonMess">
-                <img src={graduateImg as string} alt=""/>
-                <p className="name">{name}</p>
-                <p className="team">{team}</p>
-                <p className="compony">{company}</p>
-                <p className="motto">{signature}</p>
+          
+              <div className="wrapperMess">
+                  <Link to={`/user-detail/${username}`}>
+                  <div className="wrapperPersonMess">
+                    <img src={graduateImg as string} alt=""/>
+                    <p className="name">{name}</p>
+                    <p className="team">{team}</p>
+                    <p className="compony">{company}</p>
+                    <p className="motto">{signature}</p>
+                  </div>
+                  </Link>
               </div>
-            </div>
+            
           )
         })}
       </div>
