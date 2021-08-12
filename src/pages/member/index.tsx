@@ -25,8 +25,7 @@ const Member: React.FC = () => {
           <Switch>
             <Route path={`${path}/graduate`} component={Graduate}></Route>
             <Route path={`${path}/memberstyle`} component={Memberstyle}></Route>
-            {/* <Redirect to='/member/graduate'/>  */}
-            <Redirect to='/member/memberstyle'/> 
+            <Redirect to='/member/graduate'/> 
           </Switch>
         </div>
       </div>

@@ -16,7 +16,6 @@ const Member: React.FC = () => {
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Web' }).then(res => {
       // console.log(res);
-      console.log(res);
     })
   }, [])
   return (

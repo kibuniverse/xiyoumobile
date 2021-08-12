@@ -1,0 +1,48 @@
+.graduate{
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 670px;
+    // margin-bottom: 40px;
+    .yearContent{
+        padding-top: 20px;
+        margin: auto 100px;
+        align-content: center;
+        align-items: center;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        .year, .years{
+            background-color: white;
+            border: 2px solid #2e6acc;
+            margin: auto 20px;
+            text-align: center;
+            width: 120px;
+            color: #2e6acc;
+            border-radius: 50px;
+            line-height: 50px;
+            span{
+                margin: auto 20px;
+                font-size: 22px;
+            }
+        }
+        .year::after{
+            content: "";
+            position: absolute;
+            width: 42px;
+            height: 2px;
+            background-color: #2e6acc;
+            top: 49px;
+        }
+        .year:hover, .years:hover{
+            // opacity: 0.5;
+            background-color: #2e6acc;
+            color: white;
+            // border: 1px solid #2e6acc;
+        }
+    }
+    .graduateMessage{
+        width: 100%;
+        margin-top: 90px;
+    }
+}
