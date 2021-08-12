@@ -1,22 +1,17 @@
 /* eslint-disable react/destructuring-assignment */
-import { Card, Col, Divider, Row } from 'antd';
-import Avatar from 'antd/lib/avatar/avatar';
-import React, { FC } from 'react';
+import { Card, Col, Divider, Row } from "antd";
+import Avatar from "antd/lib/avatar/avatar";
+import React, { FC } from "react";
 
-import './index.less';
-import { Link } from 'react-router-dom';
-import { IWikiItem } from '../../api/wiki/index';
+import "./index.less";
+import { Link } from "react-router-dom";
+import { IWikiItem } from "../../api/wiki/index";
 
-// const Item: FC<IActivityItem & { flex?: number }> = (props) => (
-//   <div className="item-wrapper" style={{ flex: props.flex }}>
-//     <img src={props.img} alt="活动图片" />
-//     <span className="time">{props.pubTime?.slice(0, 10)}</span>
-//     <div className="item-content">
-//       <h3 className="item-title">{props.title}</h3>
-//       <p className="item-summary">{props.summary}</p>
-//     </div>
-//   </div>
-// );
+interface option {
+  row?: number;
+  title?: string;
+}
+
 const Item: FC<IWikiItem> = (props) => (
   <div className="item-wrapper">
     <Link to={`/wiki-detail/${props.id}`}>
@@ -34,20 +29,28 @@ const Item: FC<IWikiItem> = (props) => (
     </Link>
   </div>
 );
-export const WikiHome: FC<IWikiItem[]> = (props) => (
-  <div className="wiki-wrapper">
-    <div className="wiki-home">
-      <h3 className="wiki-title">小组 · wiki</h3>
-      <div className="wiki-row">
-        <Item {...props[0]} />
-        <Item {...props[1]} />
-        <Item {...props[2]} />
-      </div>
-      <div className="wiki-row">
-        <Item {...props[3]} />
-        <Item {...props[4]} />
-        <Item {...props[5]} />
+export const WikiHome: FC<IWikiItem[] & option> = (props) => {
+  const title = props.title || "小组 · wiki";
+  const row = props.row || 2;
+  const produceItem = () => {
+    let res = [];
+    for (let i = 0; i < row; i++) {
+      res.push(
+        <div className="wiki-row">
+          <Item {...props[0 + i * row]} />
+          <Item {...props[1 + i * row]} />
+          <Item {...props[2 + i * row]} />
+        </div>
+      );
+    }
+    return res;
+  };
+  return (
+    <div className="wiki-wrapper">
+      <div className="wiki-home">
+        <h3 className="wiki-title">{title}</h3>
+        {produceItem()}
       </div>
     </div>
-  </div>
-);
+  );
+};

@@ -61,8 +61,8 @@ const Home: React.FC = () => {
       <MainCarousel />
       <div className="content">
         <GroupIntroduce />
-        <ActivityHome {...activityList} />
-        <WikiHome {...wikiList} />
+        <ActivityHome {...activityList} row={1} />
+        <WikiHome {...wikiList} row={1}/>
       </div>
     </div>
   );
