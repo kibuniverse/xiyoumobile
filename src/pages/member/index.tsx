@@ -13,12 +13,18 @@ const Member: React.FC = () => {
       console.log(res);
     })
   }, [])
+  function memberClick (){
+    let memberItem = document.getElementsByClassName('member-item');
+    memberItem[0]
+    console.log(memberItem[0]);
+    
+  }
   return (
     <div className="wrapperMax">
       <div className="wrapper"></div>
       <div className="member-router">
-          <Link to={`${url}/graduate`} className="member-item">毕业生</Link>
-          <Link to={`${url}/memberstyle`} className="member-item">成员风采</Link>
+          <Link to={`${url}/graduate`} className="member-item" onClick={memberClick}>毕业生</Link>
+          <Link to={`${url}/memberstyle`} className="member-item ">成员风采</Link>
       </div>
       <div className="memberlist">
           <Switch>
