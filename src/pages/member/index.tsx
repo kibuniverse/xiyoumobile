@@ -6,25 +6,25 @@ import './index.less'
 import  Graduate  from './graduate'
 import Memberstyle from './memberstyle'
 // 成员
+const state = {
+  current: 0
+};
+
 const Member: React.FC = () => {
+  let [state, setState] = React.useState(0);
   let {path,url} = useRouteMatch();
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Web' }).then(res => {
       console.log(res);
     })
   }, [])
-  function memberClick (){
-    let memberItem = document.getElementsByClassName('member-item');
-    memberItem[0]
-    console.log(memberItem[0]);
-    
-  }
+  
   return (
     <div className="wrapperMax">
       <div className="wrapper"></div>
       <div className="member-router">
-          <Link to={`${url}/graduate`} className="member-item" onClick={memberClick}>毕业生</Link>
-          <Link to={`${url}/memberstyle`} className="member-item ">成员风采</Link>
+          <Link to={`${url}/graduate`} className={state === 0 ? 'memberOnclick' : 'member-item'} onClick={(e) =>{setState(0)}}>毕业生</Link>
+          <Link to={`${url}/memberstyle`} className={state === 2 ? 'memberOnclick' : 'member-item'} onClick={(e) =>{setState(2)}}>成员风采</Link>
       </div>
       <div className="memberlist">
           <Switch>

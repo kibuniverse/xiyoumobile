@@ -6,27 +6,36 @@ import { GraduateMemberInfo } from '../../../../api/member/interface';
 import './index.less'
 // 成员
 const Member: React.FC = () => {
-  // let {path,url} = useRouteMatch();
   const [graduatelist, setList] = React.useState< GraduateMemberInfo[]> ([]);
-
+  // React.useEffect(() => {
+  //   // alert(path)
+  //   getgraduateMemberInfo({ size: 100, year: '2017' }).then(res => {
+  //     if (res) {
+  //       console.log(res.dataList);
+  //       setList(res.dataList);
+  //       return;
+  //     }
+  //   })
+  // }, [])
+  let {path,url} = useRouteMatch();
   React.useEffect(() => {
-    getgraduateMemberInfo({ size: 100, year: '2017' }).then(res => {
+    // console.log(path);
+    let changeYear = path.substr(17, 4);
+    
+    getgraduateMemberInfo({ size: 100, year: `${changeYear as any}` }).then(res => {
       if (res) {
         console.log(res.dataList);
         setList(res.dataList);
         return;
       }
     })
-  }, [])
-
-
+  },[path])
   return (
     <div className="graduateMess">
       <div className="graduateWrapper">
         {graduatelist.map((item) => {
           const {username, name, team, graduateImg,company, signature} = item;
-          return(
-          
+          return(      
               <div className="wrapperMess">
                   <Link to={`/user-detail/${username}`}>
                   <div className="wrapperPersonMess">
@@ -38,7 +47,6 @@ const Member: React.FC = () => {
                   </div>
                   </Link>
               </div>
-            
           )
         })}
       </div>

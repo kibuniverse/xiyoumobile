@@ -27,13 +27,10 @@
         width: 55%;
         margin: 54px auto;
         position: relative;
-        .grouplist{
-            // color: rgb(11, 36, 184);
-            color: #2e6acc;
+        a{
             position: relative;
             width: 24%;
             height: 190px;
-            background: #F2F3F5;
             padding: 32px 10px;
             box-sizing: border-box;
             text-align: center;
@@ -43,10 +40,33 @@
             margin-left: 1%;
             cursor: pointer;
         }
-        .grouplist:hover{
+        .Android{
+            color: #2e6acc;
+            background: #F2F3F5 ;
             background-color: rgb(255, 255, 255);
         }
-        .grouplist::before{
+        .grouplist{
+            color: #2e6acc;
+            // position: relative;
+            // width: 24%;
+            // height: 190px;
+            background: #F2F3F5;
+            // padding: 32px 10px;
+            // box-sizing: border-box;
+            // text-align: center;
+            // float: left;
+            // line-height: 140px;
+            // font-size: 28px;
+            // margin-left: 1%;
+            // cursor: pointer;
+        }
+        // .grouplist:hover{
+        //     background-color: rgb(255, 255, 255);
+        // }
+        a:hover{
+            background-color: rgb(255, 255, 255);
+        }
+        a::before{
             content: '';
             height: 26px;
             width: 2px;
@@ -55,6 +75,15 @@
             right: 95px;
             top: -25px;
         }
+        // .grouplist::before{
+        //     content: '';
+        //     height: 26px;
+        //     width: 2px;
+        //     background: #D8D9DC;
+        //     position: absolute;
+        //     right: 95px;
+        //     top: -25px;
+        // }
     }
     .group::before{
         content: ' ';

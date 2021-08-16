@@ -18,7 +18,7 @@ export interface GetgraduateMemberInfoRes{
   dataList: GraduateMemberInfo[]
 }
 export interface GetgraduateMemberReq {
-  year: '2017' | '2016' | '2015' | '2014' | '2013' | '2012' | '2011' | '2010' | '2009'
+  year: string
   size: number
 }
 export interface GraduateMemberInfo{
