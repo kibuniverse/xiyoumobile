@@ -6,7 +6,7 @@ import {
   fetchWikiList,
   IGroupType,
 } from '../../api/wiki/interface';
-import { WikiHome } from '../../components/wikiHome';
+import { WikiHome } from '../../components/wiki-home';
 import './index.less';
 
 const parseGroupName = (key: number) => {

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { fetchActivityList } from '../../api/activity';
 import { IActivityItem } from '../../api/activity/interface';
 
-import { ActivityHome } from '../../components/activityHome';
+import { ActivityHome } from '../../components/activity-home';
 import './index.less';
 
 const parseGroupName = (key: number) => {

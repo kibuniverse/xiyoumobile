@@ -1,8 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { FC } from "react";
-import "./index.less";
-import { Link } from "react-router-dom";
-import { IActivityItem } from "../../api/activity/interface";
+import React, { FC } from 'react';
+import './index.less';
+import { Link } from 'react-router-dom';
+import { IActivityItem } from '../../api/activity/interface';
 
 const Item: FC<IActivityItem & { flex?: number }> = (props) => (
   <Link to={`/activity-detail/${props.id}`}>
@@ -23,24 +23,25 @@ interface option {
 
 export const ActivityHome: FC<IActivityItem[] & option> = (props) => {
   const row = props.row || 2;
-  const title = props.title || "小组 · 动态";
+  const title = props.title || '小组 · 动态';
   const produceItem = () => {
-    let res=[];
+    const res = [];
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < row; i++) {
-      res.push(<div className="activity-row">
-      <Item {...props[i*row+0]} />
-      <Item {...props[i*row+1]} />
-      <Item {...props[i*row+2]} />
-    </div>)
+      res.push(
+        <div className="activity-row">
+          <Item {...props[i * row + 0]} />
+          <Item {...props[i * row + 1]} />
+          <Item {...props[i * row + 2]} />
+        </div>,
+      );
     }
     return res;
   };
   return (
     <div className="activity-wrapper">
       <h3 className="activity-title">{title}</h3>
-      <div className="activity-content">
-        {produceItem()}
-      </div>
+      <div className="activity-content">{produceItem()}</div>
     </div>
   );
 };

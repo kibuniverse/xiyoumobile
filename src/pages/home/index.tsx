@@ -3,13 +3,13 @@ import { Carousel, Divider, message } from 'antd';
 import { Link, useHistory } from 'react-router-dom';
 import { fetchActivityList } from '../../api/activity';
 import './index.less';
-import { ActivityHome } from '../../components/activityHome';
-import { WikiItem } from '../../components/wikiItem';
+import { ActivityHome } from '../../components/activity-home';
+import { WikiItem } from '../../components/wiki-item';
 import { fetchWikiList } from '../../api/wiki/interface';
 import { IWikiItem } from '../../api/wiki';
-import { GroupIntroduce } from '../../components/groupIntroduce';
+import { GroupIntroduce } from '../../components/group-introduce';
 import { IActivityItem } from '../../api/activity/interface';
-import { WikiHome } from '../../components/wikiHome';
+import { WikiHome } from '../../components/wiki-home';
 
 const MainCarousel: React.FC = () => (
   <div className="content-header">
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
       <div className="content">
         <GroupIntroduce />
         <ActivityHome {...activityList} row={1} />
-        <WikiHome {...wikiList} row={1}/>
+        <WikiHome {...wikiList} row={1} />
       </div>
     </div>
   );
