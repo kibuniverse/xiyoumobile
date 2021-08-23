@@ -1,0 +1,70 @@
+.graduateMess{
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 100%;
+    .graduateWrapper{
+        margin: auto;
+        width: 80%;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        .wrapperMess{
+            // width: 230px; 
+            // width: 18%;
+            width: 230px;
+            height: 360px;
+            margin: 10px 20px;
+            .wrapperPersonMess{
+                text-align: center;
+                box-shadow: 0 1px 1px 1px rgb(212, 212, 212);
+                box-sizing: border-box;
+                height: 90%;
+                background: #fff;
+                border-radius: 5px;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+                img{
+                    width: 100%; 
+                    height: 60%;
+                    border-radius: 5px 5px 0 0;
+                }
+                p{
+                    text-align: center;
+                    color: rgba(0, 0, 0, 0.56);
+                    // color: darkblue;
+                    // text-overflow: ellipsis;
+                    // overflow: hidden;
+                }
+                .name{
+                    margin-top: 15px;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .team{
+                    margin-top: -15px;
+                }
+                .compony{
+                    margin-top: -10px;
+                    font-size: 14px;
+                }
+                .motto{
+                    height: 20px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    margin-top: -10px;
+                    font-size: 12px;
+                }
+            }
+            .wrapperPersonMess:hover{
+                transform: translateY(-3%);
+                box-shadow: 0 0px 20px  #2e6acc;
+                .name{
+                    color: darkblue;
+                }
+            }
+        }
+    }
+}
