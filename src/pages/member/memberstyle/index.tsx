@@ -1,34 +1,16 @@
 import * as React from 'react'
-import Avatar, { genConfig } from 'react-nice-avatar'
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
-import { getMemberInfo } from '../../../api/member'
 import './index.less'
 import Android from '../memberstyle/Android'
 import ios from '../memberstyle/ios'
 import Web from '../memberstyle/web'
 import Server from '../memberstyle/server'
 
-const config = genConfig({ sex: 'man' })
-
 // 成员
 const Member: React.FC = () => {
   const [state, setState] = React.useState(1);
-  const { path, url } = useRouteMatch();
-  React.useEffect(() => {
-    getMemberInfo({ size: 100, team: 'Web' }).then(res => {
-      // console.log(res);
-    })
-  }, [])
+  const { path, url } = useRouteMatch()
 
-  function changeColor() {
-    // setColor({
-    //   "Android": color.Android === color.ios === color.serve === color.web ? true : false,
-    //   "ios": color.ios === flag ? true : false,
-    //   "web": color.web === flag ? true : false,
-    //   "serve": color.serve === flag ? true : false
-    // })
-    // console.log(color);
-  }
   return (
     <div>
       <div className="content">

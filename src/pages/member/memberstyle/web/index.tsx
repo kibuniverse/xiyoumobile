@@ -5,6 +5,7 @@ import { getMemberInfo } from '../../../../api/member'
 import { MemberInfo } from '../../../../api/member/interface'
 import { isDefaultImage } from '../../../../common/utils/is-defalut-img'
 import './index.less'
+
 // 成员
 const Member: React.FC = () => {
   const [grouplist, setList] = React.useState<MemberInfo[]>([])
@@ -12,7 +13,6 @@ const Member: React.FC = () => {
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Web' }).then(res => {
       if (res) {
-        console.log(res)
         setList(res.dataList)
       }
     })
@@ -26,8 +26,7 @@ const Member: React.FC = () => {
           const { name, team } = item
           const { mienImg = '' } = item
           const isDefaultImg = isDefaultImage(mienImg || '')
-          const config = genConfig({
-          })
+          const config = genConfig({})
           return (
             <div className="personMessage">
               <div className="mess">
