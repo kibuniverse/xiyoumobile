@@ -1,29 +1,22 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
+import { message } from 'antd'
 import { getMemberDetail } from '../../api/member/index'
 import { GetMemberMessage } from '../../api/member/interface'
-import { message } from 'antd'
-<<<<<<< HEAD
-=======
 import './index.less'
->>>>>>> a239e23e4f1ef215d037d42384eb711ff1ab20c1
 
 const UserDetail: React.FC = () => {
-  // const [activityInfo, setActivityInfo] = React.useState({})
   const { id } = useParams<{id:string}>();
-  console.log("------",id);
-  const [ data,setData ] = React.useState<GetMemberMessage|null>(null);
+  const [data, setData] = React.useState<GetMemberMessage|null>(null);
   React.useEffect(() => {
     getMemberDetail(id).then(res => {
       if (res) {
-        console.log(res);
         setData(res);
         return
       }
       message.error('服务器开小差了...')
     })
-  },[])
-  console.log(data);
+  }, [])
   return (
     <div className="user_detail_wrap">
       <div className="user_detail_message">
@@ -41,9 +34,9 @@ const UserDetail: React.FC = () => {
           <dt>性别</dt>
           <dd>{data?.gender}</dd>
           <dt>组别</dt>
-          <dd>{data?.group||"未找到"}</dd>
+          <dd>{data?.group || '未找到'}</dd>
           <dt>就职公司</dt>
-          <dd>{(data?.company)||"暂未入职"}</dd>
+          <dd>{(data?.company) || '暂未入职'}</dd>
         </dl>
       </div>
       <div className="user_detail_img">

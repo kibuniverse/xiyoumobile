@@ -12,17 +12,15 @@ const config = genConfig({ sex: 'man' })
 
 // 成员
 const Member: React.FC = () => {
-  let [state, setState] = React.useState(1);
-  let {path,url} = useRouteMatch();
-  const [color, setColor] = React.useState({"Android": true, "ios": false, "web": false, "serve": false})
+  const [state, setState] = React.useState(1);
+  const { path, url } = useRouteMatch();
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Web' }).then(res => {
       // console.log(res);
     })
   }, [])
 
-
-  function changeColor(){
+  function changeColor() {
     // setColor({
     //   "Android": color.Android === color.ios === color.serve === color.web ? true : false,
     //   "ios": color.ios === flag ? true : false,
@@ -38,25 +36,22 @@ const Member: React.FC = () => {
           <div>移动应用开发实验室</div>
         </div>
         <div className="group">
-              {/* <Link to={`${url}/Android`} className={color.Android ? 'Android' : 'grouplist'} onClick={()=> changeColor()}>Android</Link>
-              <Link to={`${url}/ios`} className={color.ios ? 'Android' : 'grouplist'} onClick={()=> changeColor()}>ios</Link>
-              <Link to={`${url}/Web`} className={color.web ? 'Android' : 'grouplist'} onClick={changeColor}>Web</Link>
-              <Link to={`${url}/Server`} className={color.serve ? 'Android' : 'grouplist'} onClick={changeColor}>Server</Link> */}
-              <Link to={`${url}/Android`} className= {state===0 ? 'Android' : 'grouplist'} onClick={(e)=> setState(0)}>Android</Link>
-              <Link to={`${url}/ios`} className= {state===2 ? 'Android' : 'grouplist'} onClick={(e)=> setState(2)}>ios</Link>
-              <Link to={`${url}/Web`} className= {state===3 ? 'Android' : 'grouplist'} onClick={(e)=> setState(3)}>Web</Link>
-              <Link to={`${url}/Server`} className= {state===4 ? 'Android' : 'grouplist'} onClick={(e)=> setState(4)}>Server</Link>
+          <Link to={`${url}/Android`} className={state === 0 ? 'Android' : 'grouplist'} onClick={(e) => setState(0)}>Android</Link>
+          <Link to={`${url}/ios`} className={state === 2 ? 'Android' : 'grouplist'} onClick={(e) => setState(2)}>ios</Link>
+          <Link to={`${url}/Web`} className={state === 3 ? 'Android' : 'grouplist'} onClick={(e) => setState(3)}>Web</Link>
+          <Link to={`${url}/Server`} className={state === 4 ? 'Android' : 'grouplist'} onClick={(e) => setState(4)}>Server</Link>
         </div>
       </div>
       <div className="groupMessage">
-          <Switch>
-              <Route  path={`${path}/Android`} component={Android}></Route>
-              <Route  path={`${path}/ios`} component={ios}></Route>
-              <Route  path={`${path}/Web`} component={Web}></Route>
-              <Route  path={`${path}/Server`} component={Server}></Route>\
-              <Redirect to='/member/memberstyle/Android'/> 
-            </Switch>
-        </div>
+        <Switch>
+          <Route path={`${path}/Android`} component={Android} />
+          <Route path={`${path}/ios`} component={ios} />
+          <Route path={`${path}/Web`} component={Web} />
+          <Route path={`${path}/Server`} component={Server} />
+          \
+          <Redirect to="/member/memberstyle/Android" />
+        </Switch>
+      </div>
     </div>
   )
 }

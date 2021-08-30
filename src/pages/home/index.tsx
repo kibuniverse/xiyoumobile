@@ -1,15 +1,14 @@
-import * as React from 'react';
-import { Carousel, Divider, message } from 'antd';
-import { Link, useHistory } from 'react-router-dom';
-import { fetchActivityList } from '../../api/activity';
-import './index.less';
-import { ActivityHome } from '../../components/activity-home';
-import { WikiItem } from '../../components/wiki-item';
-import { fetchWikiList } from '../../api/wiki/interface';
-import { IWikiItem } from '../../api/wiki';
-import { GroupIntroduce } from '../../components/group-introduce';
-import { IActivityItem } from '../../api/activity/interface';
-import { WikiHome } from '../../components/wiki-home';
+import * as React from 'react'
+import { Carousel, message } from 'antd'
+import { Link, useHistory } from 'react-router-dom'
+import { fetchActivityList } from '../../api/activity'
+import { ActivityHome } from '../../components/activity-home'
+import { fetchWikiList } from '../../api/wiki/interface'
+import { IWikiItem } from '../../api/wiki'
+import { GroupIntroduce } from '../../components/group-introduce'
+import { IActivityItem } from '../../api/activity/interface'
+import { WikiHome } from '../../components/wiki-home'
+import './index.less'
 
 const MainCarousel: React.FC = () => (
   <div className="content-header">
@@ -18,43 +17,28 @@ const MainCarousel: React.FC = () => (
       <div className="carousel-item item2" />
     </Carousel>
   </div>
-);
-
-const MoreAbout: React.FC<{ to: string }> = (props) => (
-  // eslint-disable-next-line react/destructuring-assignment
-  <Link to={props.to} className="moreAbout">
-    了解更多
-  </Link>
-);
+)
 
 const Home: React.FC = () => {
-  const [activityList, setActivityList] = React.useState<IActivityItem[]>([]);
-  const [wikiList, setWikiList] = React.useState<IWikiItem[]>([]);
-  const history = useHistory();
+  const [activityList, setActivityList] = React.useState<IActivityItem[]>([])
+  const [wikiList, setWikiList] = React.useState<IWikiItem[]>([])
   // 获取activity
   React.useEffect(() => {
     fetchActivityList({ size: 6 }).then((res) => {
       if (res) {
-        console.log(res.dataList);
-        setActivityList(res.dataList);
-        return;
+        setActivityList(res.dataList)
+        return
       }
-      message.error('服务器游离中...');
-    });
+      message.error('服务器游离中...')
+    })
     fetchWikiList({ size: 6 }).then((res) => {
-      console.log(res);
       if (res) {
-        console.log(res.dataList);
-        setWikiList(res.dataList);
-        return;
+        setWikiList(res.dataList)
+        return
       }
-      message.error('服务器游离中...');
-    });
-  }, []);
-
-  const handleClickActivity = (id: number) => () => {
-    history.push(`/activity-detail?id=${id}`);
-  };
+      message.error('服务器游离中...')
+    })
+  }, [])
 
   return (
     <div className="home-wrapper">
@@ -65,6 +49,6 @@ const Home: React.FC = () => {
         <WikiHome {...wikiList} row={1} />
       </div>
     </div>
-  );
-};
-export default Home;
+  )
+}
+export default Home

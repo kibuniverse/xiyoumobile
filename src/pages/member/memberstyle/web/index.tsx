@@ -1,51 +1,52 @@
 import * as React from 'react'
-import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
-import { filter } from 'remeda';
+import Avatar, { genConfig } from 'react-nice-avatar'
+import { Image } from 'antd'
 import { getMemberInfo } from '../../../../api/member'
-import { MemberInfo } from '../../../../api/member/interface';
+import { MemberInfo } from '../../../../api/member/interface'
+import { isDefaultImage } from '../../../../common/utils/is-defalut-img'
 import './index.less'
 // 成员
 const Member: React.FC = () => {
-  // let {path,url} = useRouteMatch();
-  const [grouplist, setList] = React.useState< MemberInfo[]> ([]);
-  console.log(grouplist);
-  
+  const [grouplist, setList] = React.useState<MemberInfo[]>([])
+
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Web' }).then(res => {
       if (res) {
-        console.log(res);
-        // res.dataList.
-        setList(res.dataList);
-        return;
+        console.log(res)
+        setList(res.dataList)
       }
     })
   }, [])
 
   return (
     <div className="groupPerson">
-        <div className="groupTheme">Web组成员</div>
-        <div className="groupMessage"
-        >
-          {grouplist.map((item) => {
-          const {name, team, mienImg} = item;
+      <div className="groupTheme">Web组成员</div>
+      <div className="groupMessage">
+        {grouplist.map((item) => {
+          const { name, team } = item
+          const { mienImg = '' } = item
+          const isDefaultImg = isDefaultImage(mienImg || '')
+          const config = genConfig({
+          })
           return (
             <div className="personMessage">
-            <div className="mess">
-              <p className="name">{name}</p>
-              <div className="job">
-                <p>{team}</p>
+              <div className="mess">
+                <p className="name">{name}</p>
+                <div className="job">
+                  <p>{team}</p>
+                </div>
+              </div>
+              <div className="pic">
+                {isDefaultImg
+                  ? <Avatar shape="square" style={{ width: '120px', height: '120px' }} {...config} />
+                  : <Image src={mienImg as string} />}
+                <i className="icon" />
               </div>
             </div>
-            <div className="pic">
-              <img src={mienImg as string} alt=""/>
-              <i className="icon"></i>
-            </div>
-          </div>
           )
         })}
-        </div>
-        
-        
+      </div>
+
     </div>
   )
 }
