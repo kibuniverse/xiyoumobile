@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
+import { Popover } from 'antd'
 import { getgraduateMemberInfo } from '../../../../api/member'
 import { GraduateMemberInfo } from '../../../../api/member/interface'
 import './index.less'
@@ -30,7 +31,10 @@ const Member: React.FC = () => {
                   <p className="name">{name}</p>
                   <p className="team">{team}</p>
                   <p className="compony">{company}</p>
-                  <p className="motto">{signature}</p>
+                  <Popover content={signature} trigger="hover">
+                    <p className="motto">{signature}</p>
+                  </Popover>
+
                 </div>
               </Link>
             </div>
