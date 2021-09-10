@@ -1,11 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
-import { Card, Col, Divider, Row } from "antd";
-import Avatar from "antd/lib/avatar/avatar";
-import React, { FC } from "react";
+import { Divider } from 'antd';
+import Avatar from 'antd/lib/avatar/avatar';
+import React, { FC } from 'react';
 
-import "./index.less";
-import { Link } from "react-router-dom";
-import { IWikiItem } from "../../api/wiki/index";
+import './index.less';
+import { Link } from 'react-router-dom';
+import { IWikiItem } from '../../api/wiki/interface';
 
 interface option {
   row?: number;
@@ -30,17 +30,17 @@ const Item: FC<IWikiItem> = (props) => (
   </div>
 );
 export const WikiHome: FC<IWikiItem[] & option> = (props) => {
-  const title = props.title || "小组 · wiki";
+  const title = props.title || '小组 · wiki';
   const row = props.row || 2;
   const produceItem = () => {
-    let res = [];
-    for (let i = 0; i < row; i++) {
+    const res = [];
+    for (let i = 0; i < row; i += 1) {
       res.push(
         <div className="wiki-row">
           <Item {...props[0 + i * row]} />
           <Item {...props[1 + i * row]} />
           <Item {...props[2 + i * row]} />
-        </div>
+        </div>,
       );
     }
     return res;

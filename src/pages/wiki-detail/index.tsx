@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
-import { fetchWikiDetail } from '../../api/wiki/interface'
-import { IWikeDetail } from '../../api/wiki'
 import { message } from 'antd'
+import { fetchWikiDetail } from '../../api/wiki'
+import { IWikeDetail } from '../../api/wiki/interface'
 import './index.less'
 
 const WikiDetail: React.FC = () => {
   const { id } = useParams<{id:string}>();
-  const [data,setData] = React.useState<IWikeDetail|null>(null);
+  const [data, setData] = React.useState<IWikeDetail|null>(null);
   React.useEffect(() => {
     console.log('active');
     fetchWikiDetail(id).then(res => {
@@ -17,7 +17,7 @@ const WikiDetail: React.FC = () => {
       }
         message.error('服务器开小差了...')
     })
-  },[])
+  }, [])
   return (
     <div className="wiki_detail_wrap">
       <div className="wiki_detail_box">
@@ -35,7 +35,7 @@ const WikiDetail: React.FC = () => {
           <span>{data?.pubTime}</span>
         </div>
         <hr />
-        <div dangerouslySetInnerHTML={{__html:data?.content||""}} className="wiki-activity_txt"></div>
+        <div dangerouslySetInnerHTML={{ __html: data?.content || '' }} className="wiki-activity_txt" />
       </div>
     </div>
   )

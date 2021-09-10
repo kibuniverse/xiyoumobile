@@ -22,20 +22,11 @@ const Activity: React.FC = () => {
   const [pageNum, setPageNum] = React.useState(1);
   const [totalCount, setTotalCount] = React.useState(1);
   const [selectGroup, setSelectGroup] = React.useState(['all']);
-  // const [group, setGroup] = React.useState<IGroupType[] | null>(null);
   const [loading, setLoading] = React.useState(true);
-  // React.useEffect(() => {
-  //   fetchactivityGroup().then((res) => {
-  //     setGroup(res || null);
-  //     setLoading(false);
-  //   });
-  // }, []);
   React.useEffect(() => {
     setLoading(true);
     fetchActivityList({
       size: 6,
-      // pageNum,
-      // type: selectGroup[0] === 'all' ? undefined : selectGroup[0],
     }).then((res) => {
       setLoading(false);
       if (res) {

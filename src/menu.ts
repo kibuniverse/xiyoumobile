@@ -4,7 +4,7 @@ import Member from './pages/member'
 import Join from './pages/join'
 import Activity from './pages/activity'
 import ActivityDetail from './pages/activity-detail'
-import  WikiDetail  from './pages/wiki-detail'
+import WikiDetail from './pages/wiki-detail'
 import UserDetail from './pages/user-detail'
 
 export const menu = [
@@ -32,13 +32,14 @@ export const menu = [
     path: '/member',
     title: '成员',
     component: Member,
-    exact:false
+    exact: false,
   },
   {
     key: 'join',
     path: '/join',
     title: '加入我们',
     component: Join,
+    notInMenu: true,
   },
   {
     key: 'ActivityDetail',

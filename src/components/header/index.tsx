@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { Avatar } from 'antd';
+import { Link, useLocation } from 'react-router-dom';
 import { filter } from 'remeda';
-import { debounce, isUndefined } from 'lodash';
 
 import { menu } from '../../menu';
 import './index.less';

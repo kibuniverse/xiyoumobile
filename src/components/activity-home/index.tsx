@@ -29,10 +29,8 @@ export const ActivityHome: FC<IActivityItem[] & option> = (props) => {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < row; i++) {
       res.push(
-        <div className="activity-row">
-          <Item {...props[i * row + 0]} />
-          <Item {...props[i * row + 1]} />
-          <Item {...props[i * row + 2]} />
+        <div key={i} className="activity-row">
+          {[0, 1, 2].map(i1 => <Item key={i1} {...props[i * row + i1]} />)}
         </div>,
       );
     }
