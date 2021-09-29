@@ -1,20 +1,27 @@
 import * as React from 'react'
-import Avatar, { genConfig } from 'react-nice-avatar'
-import { getMemberInfo } from '../../api/member'
+import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
+import Graduate from './graduate'
+import Memberstyle from './memberstyle'
+import './index.less'
 
-const config = genConfig({ sex: 'man' })
-
-// 成员
 const Member: React.FC = () => {
-  React.useEffect(() => {
-    getMemberInfo({ size: 100, team: 'Web' }).then(res => {
-      console.log(res)
-    })
-  }, [])
+  const [state, setState] = React.useState(0)
+  const { path, url } = useRouteMatch()
+
   return (
-    <div>
-      Member page
-      <Avatar style={{ width: '8rem', height: '8rem' }} {...config} />
+    <div className="wrapperMax">
+      <div className="wrapper" />
+      <div className="member-router">
+        <Link to={`${url}/graduate`} className={state === 0 ? 'memberOnclick' : 'member-item'} onClick={(e) => { setState(0) }}>毕业生</Link>
+        <Link to={`${url}/memberstyle`} className={state === 2 ? 'memberOnclick' : 'member-item'} onClick={(e) => { setState(2) }}>成员风采</Link>
+      </div>
+      <div className="memberlist">
+        <Switch>
+          <Route path={`${path}/graduate`} component={Graduate} />
+          <Route path={`${path}/memberstyle`} component={Memberstyle} />
+          <Redirect to="/member/graduate" />
+        </Switch>
+      </div>
     </div>
   )
 }

@@ -1,45 +1,75 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-import { Avatar } from 'antd'
-import { filter } from 'remeda'
-import { menu } from '../../menu'
-import './index.less'
+import * as React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { filter } from 'remeda';
 
-const header = {
-  backdropFilter: 'blur(3px)', background: 'border-box border-box rgba(255, 255, 255, 0.25)',
-}
+import { menu } from '../../menu';
+import './index.less';
+
 interface Menu {
   key: string;
   path: string;
   title: string;
   component: React.FC<any>;
   notInMenu?: undefined | boolean;
+  opacity?: boolean;
 }
 
+const useControlHeader = (initOpacity: boolean) => {
+  const [scrollerHeight, setScrollerHeight] = React.useState(0);
+  const [hidden, setHidden] = React.useState(false);
+  const [opacity, setOpacity] = React.useState(initOpacity);
+  React.useEffect(() => {
+    const fn = () => {
+      setScrollerHeight((item) => {
+        if (item > document.documentElement.scrollTop) {
+          setHidden(false);
+        } else {
+          setHidden(true);
+        }
+        return document.documentElement.scrollTop;
+      });
+    };
+    document.addEventListener('scroll', fn);
+    return () => {
+      document.removeEventListener('scroll', fn);
+    };
+  }, []);
+  return { hidden, scrollerHeight, opacity, setOpacity };
+};
+
 const Header: React.FC = () => {
-  const [selectKey, setSelectKey] = React.useState('')
-  const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(menu)
-  const routerMenu: Menu[] = filter((menuItem: Menu) => Boolean(menuItem.notInMenu))(menu)
+  // const [key, setKey] = React.useState('home');
+  const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(
+    menu,
+  );
+  const location = useLocation();
+  const res = realMenu.find((item) => item.path === location.pathname)?.opacity;
+  const { hidden, scrollerHeight, opacity, setOpacity } = useControlHeader(
+    typeof res === 'undefined' ? true : res,
+  );
   return (
-    <header className="header" style={header}>
-      <div className="logo">
-        <Avatar size="large" src="https://mobile.xupt.edu.cn/res/static/wiki_default.jpg" />
-      </div>
+    <header
+      className={`header ${!opacity && scrollerHeight === 0 ? '' : 'opacity'} ${
+        hidden ? 'hidden' : ''
+      }`}
+    >
+      <div className="logo" />
       <div className="menu-router">
-        {realMenu.map(item => (
+        {realMenu.map((item) => (
           <Link
             className="menu-item"
-            style={{ color: selectKey === item.key ? '#1890ff' : '#000' }}
-            onClick={() => setSelectKey(item.key)}
             key={item.key}
             to={item.path}
+            onClick={() => {
+              setOpacity(typeof item.opacity === 'undefined' ? true : item.opacity);
+            }}
           >
             {item.title}
           </Link>
-      ))}
+        ))}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
