@@ -1,1 +1,1 @@
-export { default as WikiDetail } from './wiki-detail'
+export {default as WikiDetail} from './wiki-detail'
