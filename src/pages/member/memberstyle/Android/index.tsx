@@ -1,19 +1,15 @@
 import * as React from 'react'
-import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom';
-import { filter } from 'remeda';
+import { Link } from 'react-router-dom';
 import { getMemberInfo } from '../../../../api/member'
 import { MemberInfo } from '../../../../api/member/interface';
 import './index.less'
 // 成员
 const Member: React.FC = () => {
-  // let {path,url} = useRouteMatch();
-  const [grouplist, setList] = React.useState< MemberInfo[]>([]);
-  console.log(grouplist);
+  const [list, setGroupList] = React.useState<MemberInfo[]>([]);
 
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Android' }).then(res => {
       if (res) {
-        // res.dataList.
         setList(res.dataList);
       }
     })
@@ -43,7 +39,6 @@ const Member: React.FC = () => {
           )
         })}
       </div>
-
     </div>
   )
 }
