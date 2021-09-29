@@ -1,11 +1,13 @@
 # xiyouMobile Website
 
 ## 使用工具
-- React  ^17.x.x
-- vite  ^2.x.x
-- antd  ^4.x.x
+
+- React ^17.x.x
+- vite ^2.x.x
+- antd ^4.x.x
 
 ## 目录结构
+
 ```bash
 src
 ├── menus.ts # 页面整体路由配置
@@ -45,10 +47,14 @@ src
 
 ```
 
-## 
+##
+
 ## 开发规范
+
 ### 命名
+
 文件命和文件夹名不允许出现大写
+
 ```bash
 // bad
 HelloWorld
@@ -60,8 +66,7 @@ helloworld
 hello-world
 ```
 
-
-
 ### commit 规范
+
 commit 进行了基本的检查配置
 建议使用 `npm run commit` 进行提交
