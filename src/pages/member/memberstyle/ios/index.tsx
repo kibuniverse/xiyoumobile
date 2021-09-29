@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {getMemberInfo} from '../../../../api/member'
-import {MemberInfo} from '../../../../api/member/interface'
+import { getMemberInfo } from '../../../../api/member'
+import { MemberInfo } from '../../../../api/member/interface'
 import './index.less'
 
 // 成员
@@ -8,7 +8,7 @@ const Member: React.FC = () => {
 	const [groupList, setGroupList] = React.useState<MemberInfo[]>([])
 
 	React.useEffect(() => {
-		getMemberInfo({size: 100, team: 'iOS'}).then((res) => {
+		getMemberInfo({ size: 100, team: 'iOS' }).then((res) => {
 			if (res) {
 				setGroupList(res.dataList)
 			}
@@ -20,7 +20,7 @@ const Member: React.FC = () => {
 			<div className="groupTheme">IOS组成员</div>
 			<div className="groupMessageI">
 				{groupList.map((item) => {
-					const {name, team, mienImg} = item
+					const { name, team, mienImg } = item
 					return (
 						<div className="personMessage">
 							<div className="mess">

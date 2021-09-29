@@ -1,6 +1,6 @@
-import {message} from 'antd'
+import { message } from 'antd'
 import pickBy from 'lodash/pickBy'
-import {request as req} from './request'
+import { request as req } from './request'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface IRes<D = any> {
@@ -49,7 +49,7 @@ const NotEmptyOrNullOrUndefined = (value: any) => value !== null && value !== un
 const restful = [
 	{
 		methods: 'get',
-		formatParams(params: {[x: string]: unknown}) {
+		formatParams(params: { [x: string]: unknown }) {
 			return pickBy(params, NotEmptyOrNullOrUndefined)
 		}
 	},
@@ -58,7 +58,7 @@ const restful = [
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		formatParams(params: {[x: string]: unknown}) {
+		formatParams(params: { [x: string]: unknown }) {
 			return pickBy(params, NotEmptyOrNullOrUndefined)
 		}
 	},
@@ -67,7 +67,7 @@ const restful = [
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		formatParams(params: {[x: string]: unknown}) {
+		formatParams(params: { [x: string]: unknown }) {
 			return pickBy(params, NotEmptyOrNullOrUndefined)
 		}
 	},
@@ -77,7 +77,7 @@ const restful = [
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		formatParams(params: {[x: string]: unknown}) {
+		formatParams(params: { [x: string]: unknown }) {
 			return pickBy(params, NotEmptyOrNullOrUndefined)
 		}
 	}
@@ -93,17 +93,17 @@ restful.forEach((item) => {
 	// @ts-ignore ...
 	http[item.alias || method] = <D>(
 		url: string,
-		data?: {[x: string]: unknown},
+		data?: { [x: string]: unknown },
 		options: IHttpFetchOptions = {}
 	) => {
-		const {errorMsg, silent} = options
+		const { errorMsg, silent } = options
 
 		if (typeof item === 'object' && data) {
 			// eslint-disable-next-line no-nested-ternary
 			item.formatParams(data)
 		}
 
-		return req<IRes<D>>(url, method, data, {...item.headers})
+		return req<IRes<D>>(url, method, data, { ...item.headers })
 			.then((resp) => {
 				if (
 					resp &&
@@ -140,4 +140,4 @@ restful.forEach((item) => {
 
 export default http as IHttp
 
-export const {post, get, put, del, request} = http as IHttp
+export const { post, get, put, del, request } = http as IHttp

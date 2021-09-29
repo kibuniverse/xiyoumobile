@@ -1,4 +1,4 @@
-import {IPageInfo} from '../../common/Inteface'
+import { IPageInfo } from '../../common/Inteface'
 
 export interface FetchActivityListReq {
 	size: number

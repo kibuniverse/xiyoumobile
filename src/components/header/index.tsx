@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {Link, useLocation} from 'react-router-dom'
-import {filter} from 'remeda'
+import { Link, useLocation } from 'react-router-dom'
+import { filter } from 'remeda'
 
-import {menu} from '../../menu'
+import { menu } from '../../menu'
 import './index.less'
 
 interface Menu {
@@ -34,7 +34,7 @@ const useControlHeader = (initOpacity: boolean) => {
 			document.removeEventListener('scroll', fn)
 		}
 	}, [])
-	return {hidden, scrollerHeight, opacity, setOpacity}
+	return { hidden, scrollerHeight, opacity, setOpacity }
 }
 
 const Header: React.FC = () => {
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
 	const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(menu)
 	const location = useLocation()
 	const res = realMenu.find((item) => item.path === location.pathname)?.opacity
-	const {hidden, scrollerHeight, opacity, setOpacity} = useControlHeader(
+	const { hidden, scrollerHeight, opacity, setOpacity } = useControlHeader(
 		typeof res === 'undefined' ? true : res
 	)
 	return (

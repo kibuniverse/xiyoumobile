@@ -1,6 +1,6 @@
-import {get} from '../../common/services'
-import {FetchWikiListReq, IWikiItem, IWikeDetail} from './interface'
-import {IPageInfo} from '../../common/Inteface'
+import { get } from '../../common/services'
+import { FetchWikiListReq, IWikiItem, IWikeDetail } from './interface'
+import { IPageInfo } from '../../common/Inteface'
 
 export interface IGroupType {
 	count: number
@@ -8,7 +8,7 @@ export interface IGroupType {
 	typeName: string
 }
 export const fetchWikiList = (req: FetchWikiListReq) =>
-	get<{dataList: IWikiItem[]} & {pageInfo: IPageInfo}>(
+	get<{ dataList: IWikiItem[] } & { pageInfo: IPageInfo }>(
 		`/api/wiki/list/${(req.type && `type/${req.type}`) || 'all'}/${req.pageNum || 1}?size=${
 			req.size
 		}`

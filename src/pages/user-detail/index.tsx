@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {useParams} from 'react-router'
-import {message} from 'antd'
-import {getMemberDetail} from '../../api/member/index'
-import {GetMemberMessage} from '../../api/member/interface'
+import { useParams } from 'react-router'
+import { message } from 'antd'
+import { getMemberDetail } from '../../api/member/index'
+import { GetMemberMessage } from '../../api/member/interface'
 import './index.less'
 
 const UserDetail: React.FC = () => {
-	const {id} = useParams<{id: string}>()
+	const { id } = useParams<{ id: string }>()
 	const [data, setData] = React.useState<GetMemberMessage | null>(null)
 	React.useEffect(() => {
 		getMemberDetail(id).then((res) => {

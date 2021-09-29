@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {BrowserRouter, Route, Switch, withRouter} from 'react-router-dom'
-import {menu} from '../../menu'
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
+import { menu } from '../../menu'
 import Footer from '../footer'
 import Header from '../header'
 

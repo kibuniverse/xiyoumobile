@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable linebreak-style */
 import * as React from 'react'
-import {Link} from 'react-router-dom'
-import {useState} from 'react'
-import {WechatFilled} from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { WechatFilled } from '@ant-design/icons'
 import './index.less'
 
 const Footer: React.FC = () => {

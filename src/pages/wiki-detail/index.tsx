@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {useParams} from 'react-router'
-import {message} from 'antd'
-import {fetchWikiDetail} from '../../api/wiki'
-import {IWikeDetail} from '../../api/wiki/interface'
+import { useParams } from 'react-router'
+import { message } from 'antd'
+import { fetchWikiDetail } from '../../api/wiki'
+import { IWikeDetail } from '../../api/wiki/interface'
 import './index.less'
 
 const WikiDetail: React.FC = () => {
-	const {id} = useParams<{id: string}>()
+	const { id } = useParams<{ id: string }>()
 	const [data, setData] = React.useState<IWikeDetail | null>(null)
 	React.useEffect(() => {
 		console.log('active')
@@ -36,7 +36,7 @@ const WikiDetail: React.FC = () => {
 				</div>
 				<hr />
 				<div
-					dangerouslySetInnerHTML={{__html: data?.content || ''}}
+					dangerouslySetInnerHTML={{ __html: data?.content || '' }}
 					className="wiki-activity_txt"
 				/>
 			</div>

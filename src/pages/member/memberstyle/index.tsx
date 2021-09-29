@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Link, Route, Switch, Redirect, useRouteMatch} from 'react-router-dom'
+import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
 import './index.less'
 import Android from '../memberstyle/Android'
 import ios from '../memberstyle/ios'
@@ -9,7 +9,7 @@ import Server from '../memberstyle/server'
 // 成员
 const Member: React.FC = () => {
 	const [state, setState] = React.useState(1)
-	const {path, url} = useRouteMatch()
+	const { path, url } = useRouteMatch()
 
 	return (
 		<div>

@@ -3,7 +3,7 @@
 import qs from 'qs'
 import 'whatwg-fetch'
 
-const {FormData} = window
+const { FormData } = window
 const baseUrl = ''
 
 export const request = <R>(
@@ -29,7 +29,7 @@ export const request = <R>(
 		body = JSON.stringify(data)
 	}
 	if (method === 'GET') {
-		url += qs.stringify(data, {addQueryPrefix: true})
+		url += qs.stringify(data, { addQueryPrefix: true })
 		body = undefined
 	}
 

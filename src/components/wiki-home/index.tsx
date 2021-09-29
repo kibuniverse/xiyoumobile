@@ -1,11 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
-import {Divider} from 'antd'
+import { Divider } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 
 import './index.less'
-import {Link} from 'react-router-dom'
-import {IWikiItem} from '../../api/wiki/interface'
+import { Link } from 'react-router-dom'
+import { IWikiItem } from '../../api/wiki/interface'
 
 interface option {
 	row?: number

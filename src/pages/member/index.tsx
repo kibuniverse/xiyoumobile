@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {Link, Route, Switch, Redirect, useRouteMatch} from 'react-router-dom'
+import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
 import Graduate from './graduate'
 import Memberstyle from './memberstyle'
 import './index.less'
 
 const Member: React.FC = () => {
 	const [state, setState] = React.useState(0)
-	const {path, url} = useRouteMatch()
+	const { path, url } = useRouteMatch()
 
 	return (
 		<div className="wrapperMax">

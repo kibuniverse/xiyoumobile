@@ -1,5 +1,5 @@
-import {get} from '../../common/services'
-import {FetchActivityListReq, FetchActivityListRes, IActivityDetail} from './interface'
+import { get } from '../../common/services'
+import { FetchActivityListReq, FetchActivityListRes, IActivityDetail } from './interface'
 
 /**
  *

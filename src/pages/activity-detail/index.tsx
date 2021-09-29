@@ -1,12 +1,12 @@
-import {message, Calendar} from 'antd'
+import { message, Calendar } from 'antd'
 import * as React from 'react'
-import {useParams} from 'react-router'
-import {fetchActivityDetail} from '../../api/activity'
-import {IActivityDetail} from '../../api/activity/interface'
+import { useParams } from 'react-router'
+import { fetchActivityDetail } from '../../api/activity'
+import { IActivityDetail } from '../../api/activity/interface'
 import './index.less'
 
 const ActivityDetail: React.FC = () => {
-	const {id} = useParams<{id: string}>()
+	const { id } = useParams<{ id: string }>()
 	const [data, setData] = React.useState<IActivityDetail | null>(null)
 	React.useEffect(() => {
 		fetchActivityDetail(id).then((res) => {
@@ -39,7 +39,7 @@ const ActivityDetail: React.FC = () => {
 					<h1 className="activity_title">{data?.title}</h1>
 					<span>{data?.pubTime}</span>
 					<hr />
-					<div dangerouslySetInnerHTML={{__html: data?.content || ''}} />
+					<div dangerouslySetInnerHTML={{ __html: data?.content || '' }} />
 				</div>
 			</div>
 		</div>

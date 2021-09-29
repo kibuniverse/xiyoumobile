@@ -1,4 +1,4 @@
-import {get} from '../../common/services'
+import { get } from '../../common/services'
 import {
 	GetMemberInfoRes,
 	GetMemberInfoReq,

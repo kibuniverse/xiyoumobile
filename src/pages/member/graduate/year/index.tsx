@@ -1,18 +1,18 @@
 import * as React from 'react'
-import {Link, useRouteMatch} from 'react-router-dom'
-import {Popover} from 'antd'
-import {getgraduateMemberInfo} from '../../../../api/member'
-import {GraduateMemberInfo} from '../../../../api/member/interface'
+import { Link, useRouteMatch } from 'react-router-dom'
+import { Popover } from 'antd'
+import { getgraduateMemberInfo } from '../../../../api/member'
+import { GraduateMemberInfo } from '../../../../api/member/interface'
 import './index.less'
 
 // 成员
 const Member: React.FC = () => {
 	const [graduatelist, setList] = React.useState<GraduateMemberInfo[]>([])
-	const {path} = useRouteMatch()
+	const { path } = useRouteMatch()
 
 	React.useEffect(() => {
 		const changeYear = path.substr(17, 4)
-		getgraduateMemberInfo({size: 100, year: `${changeYear as any}`}).then((res) => {
+		getgraduateMemberInfo({ size: 100, year: `${changeYear as any}` }).then((res) => {
 			if (res) {
 				setList(res.dataList)
 			}
@@ -22,7 +22,7 @@ const Member: React.FC = () => {
 		<div className="graduateMess">
 			<div className="graduateWrapper">
 				{graduatelist.map((item) => {
-					const {username, name, team, graduateImg, company, signature} = item
+					const { username, name, team, graduateImg, company, signature } = item
 					return (
 						<div className="wrapperMess">
 							<Link to={`/user-detail/${username}`}>
