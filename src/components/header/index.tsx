@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { filter } from 'remeda'
-
+import useControlHeader from '../../hooks/useScroll'
 import { menu } from '../../menu'
 import './index.less'
 
@@ -14,31 +14,7 @@ interface Menu {
 	opacity?: boolean
 }
 
-const useControlHeader = (initOpacity: boolean) => {
-	const [scrollerHeight, setScrollerHeight] = React.useState(0)
-	const [hidden, setHidden] = React.useState(false)
-	const [opacity, setOpacity] = React.useState(initOpacity)
-	React.useEffect(() => {
-		const fn = () => {
-			setScrollerHeight((item) => {
-				if (item > document.documentElement.scrollTop) {
-					setHidden(false)
-				} else {
-					setHidden(true)
-				}
-				return document.documentElement.scrollTop
-			})
-		}
-		document.addEventListener('scroll', fn)
-		return () => {
-			document.removeEventListener('scroll', fn)
-		}
-	}, [])
-	return { hidden, scrollerHeight, opacity, setOpacity }
-}
-
 const Header: React.FC = () => {
-	// const [key, setKey] = React.useState('home');
 	const realMenu: Menu[] = filter((menuItem: Menu) => !menuItem.notInMenu)(menu)
 	const location = useLocation()
 	const res = realMenu.find((item) => item.path === location.pathname)?.opacity

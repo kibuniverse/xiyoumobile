@@ -1,8 +1,7 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { FC } from 'react'
 import './index.less'
 import { Link } from 'react-router-dom'
-import { IActivityItem } from '../../api/activity/interface'
+import { IActivityItem } from '@/api/activity/interface'
 
 const Item: FC<IActivityItem & { flex?: number }> = (props) => (
 	<Link to={`/activity-detail/${props.id}`}>
@@ -26,7 +25,6 @@ export const ActivityHome: FC<IActivityItem[] & option> = (props) => {
 	const title = props.title || '小组 · 动态'
 	const produceItem = () => {
 		const res = []
-		// eslint-disable-next-line no-plusplus
 		for (let i = 0; i < row; i++) {
 			res.push(
 				<div key={i} className="activity-row">
