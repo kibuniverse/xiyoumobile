@@ -3,6 +3,11 @@
 		"target": "ESNext",
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"types": ["vite/client"],
+		"jsx": "react",
+		"baseUrl": "./",
+		"paths": {
+      "@/*": ["src/*"],
+    },
 		"allowJs": false,
 		"skipLibCheck": false,
 		"esModuleInterop": false,
@@ -14,7 +19,7 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react"
+	
 	},
 	"include": ["./src"]
 }
