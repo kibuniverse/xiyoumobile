@@ -8,7 +8,7 @@ const useControlHeader = (initOpacity: boolean) => {
 	React.useEffect(() => {
 		const fn = () => {
 			setScrollerHeight((item) => {
-				setHidden(item <= document.documentElement.scrollTop);
+				setHidden(item <= document.documentElement.scrollTop)
 				return document.documentElement.scrollTop
 			})
 		}
