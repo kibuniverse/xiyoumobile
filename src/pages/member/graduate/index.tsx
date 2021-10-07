@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
-import { getgraduateMemberInfo } from '@api/member'
+import { getGraduateMemberInfo } from '@/api/member'
 import year from './year'
 import './index.less'
 
@@ -10,9 +10,9 @@ const Member: React.FC = () => {
   const [state, setState] = React.useState(0)
   const [step, setStep] = React.useState({ current: 1 })
   React.useEffect(() => {
-    getgraduateMemberInfo({ size: 100, year: '2017' }).then((res) => {
+    getGraduateMemberInfo({ size: 100, year: '2017' }).then((res) => {
       if (res) {
-        // console.log(res);
+        console.log(res)
       }
     })
   }, [])
@@ -32,6 +32,7 @@ const Member: React.FC = () => {
       <div className="yearContent">
         {yearslist.map((item) => (
           <Link
+            key={item.id}
             to={`${url}/${item.id}`}
             className={item.id === 2009 ? 'years' : 'year'}
             style={{
@@ -49,7 +50,7 @@ const Member: React.FC = () => {
       <div className="graduateMessage">
         <Switch>
           {yearslist.map((item) => (
-            <Route path={`${path}/${item.id}`} component={year} />
+            <Route key={item.id} path={`${path}/${item.id}`} component={year} />
           ))}
           <Redirect to={`${path}/2017`} />
         </Switch>

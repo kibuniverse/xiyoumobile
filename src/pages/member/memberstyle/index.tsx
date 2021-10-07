@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
 import './index.less'
-import Android from '../memberstyle/Android'
+import Android from './android'
 import ios from '../memberstyle/ios'
 import Web from '../memberstyle/web'
 import Server from '../memberstyle/server'
@@ -30,7 +30,7 @@ const Member: React.FC = () => {
             className={state === 2 ? 'Android' : 'grouplist'}
             onClick={(e) => setState(2)}
           >
-            ios
+            iOS
           </Link>
           <Link
             to={`${url}/Web`}

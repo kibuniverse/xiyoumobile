@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import { getMemberInfo } from '@api/member'
-import { MemberInfo } from '@api/member/interface'
+import { getMemberInfo } from '@/api/member'
+import { MemberInfo } from '@/api/member/interface'
 import './index.less'
 // 成员
 const Member: React.FC = () => {

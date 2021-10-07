@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { getMemberInfo } from '@api/member'
-import { MemberInfo } from '@api/member/interface'
+import randomArr from '@/common/utils/random-array'
+import { getMemberInfo } from '@/api/member'
+import { MemberInfo } from '@/api/member/interface'
 import './index.less'
 // 成员
 const Member: React.FC = () => {
@@ -8,7 +9,8 @@ const Member: React.FC = () => {
   React.useEffect(() => {
     getMemberInfo({ size: 100, team: 'Server' }).then((res) => {
       if (res) {
-        setList(res.dataList)
+        const arr = randomArr(res.dataList)
+        setList(arr)
       }
     })
   }, [])

@@ -14,10 +14,10 @@ export interface GetMemberInfoReq {
   team: 'iOS' | 'Web' | 'Android' | 'Server'
   size: number
 }
-export interface GetgraduateMemberInfoRes {
+export interface GetGraduateMemberInfoRes {
   dataList: GraduateMemberInfo[]
 }
-export interface GetgraduateMemberReq {
+export interface GetGraduateMemberReq {
   year: string
   size: number
 }

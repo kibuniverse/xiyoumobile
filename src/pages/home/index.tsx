@@ -11,7 +11,7 @@ import './index.less'
 
 const MainCarousel: React.FC = () => (
   <div className="content-header">
-    <Carousel adaptiveHeight>
+    <Carousel autoplay adaptiveHeight>
       <div className="carousel-item item1" />
       <div className="carousel-item item2" />
     </Carousel>

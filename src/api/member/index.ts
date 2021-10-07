@@ -2,8 +2,8 @@ import { get } from '../../common/services'
 import {
   GetMemberInfoRes,
   GetMemberInfoReq,
-  GetgraduateMemberInfoRes,
-  GetgraduateMemberReq,
+  GetGraduateMemberInfoRes,
+  GetGraduateMemberReq,
   GetMemberMessage
 } from './interface'
 
@@ -14,7 +14,7 @@ import {
  */
 export const getMemberInfo = (params: GetMemberInfoReq) =>
   get<GetMemberInfoRes>(`/api/member/list/current/${params.team}/1?size=${params.size}`)
-export const getgraduateMemberInfo = (params: GetgraduateMemberReq) =>
-  get<GetgraduateMemberInfoRes>(`/api/member/list/graduate/${params.year}/1?size=${params.size}`)
+export const getGraduateMemberInfo = (params: GetGraduateMemberReq) =>
+  get<GetGraduateMemberInfoRes>(`/api/member/list/graduate/${params.year}/1?size=${params.size}`)
 export const getMemberDetail = (username: string) =>
   get<GetMemberMessage>(`/api/member/detail/${username}`)

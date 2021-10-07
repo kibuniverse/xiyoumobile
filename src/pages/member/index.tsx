@@ -5,8 +5,8 @@ import Memberstyle from './memberstyle'
 import './index.less'
 
 const Member: React.FC = () => {
-  const [state, setState] = React.useState(0)
   const { path, url } = useRouteMatch()
+  const [state, setState] = React.useState(0)
 
   return (
     <div className="wrapperMax">
