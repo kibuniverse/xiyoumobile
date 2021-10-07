@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Avatar, { genConfig } from 'react-nice-avatar'
 import { Image } from 'antd'
-import { getMemberInfo } from '../../../../api/member'
-import { MemberInfo } from '../../../../api/member/interface'
+import { getMemberInfo } from '@api/member'
+import { MemberInfo } from '@api/member/interface'
 import { isDefaultImage } from '../../../../common/utils/is-defalut-img'
 import './index.less'
 

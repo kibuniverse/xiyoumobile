@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { getMemberInfo } from '../../../../api/member'
-import { MemberInfo } from '../../../../api/member/interface'
+import { getMemberInfo } from '@api/member'
+import { MemberInfo } from '@api/member/interface'
 import './index.less'
 
 // 成员

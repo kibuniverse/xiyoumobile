@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
-import { getgraduateMemberInfo } from '../../../api/member'
+import { getgraduateMemberInfo } from '@api/member'
 import year from './year'
 import './index.less'
 

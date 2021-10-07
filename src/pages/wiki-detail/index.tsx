@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
 import { message } from 'antd'
-import { fetchWikiDetail } from '../../api/wiki'
-import { IWikeDetail } from '../../api/wiki/interface'
+import { fetchWikiDetail } from '@api/wiki'
+import { IWikeDetail } from '@api/wiki/interface'
 import './index.less'
 
 const WikiDetail: React.FC = () => {
