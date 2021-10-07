@@ -5,21 +5,21 @@ import Footer from '../footer'
 import Header from '../header'
 
 const Layout: React.FC = () => (
-	<BrowserRouter>
-		<Header />
-		<Switch>
-			{menu.map((item) => (
-				<Route
-					key={item.key}
-					exact={typeof item.exact !== 'undefined' ? item.exact : true}
-					path={item.path}
-				>
-					{withRouter(item.component)}
-				</Route>
-			))}
-		</Switch>
-		<Footer />
-	</BrowserRouter>
+  <BrowserRouter>
+    <Header />
+    <Switch>
+      {menu.map((item) => (
+        <Route
+          key={item.key}
+          exact={typeof item.exact !== 'undefined' ? item.exact : true}
+          path={item.path}
+        >
+          {withRouter(item.component)}
+        </Route>
+      ))}
+    </Switch>
+    <Footer />
+  </BrowserRouter>
 )
 
 export default Layout
