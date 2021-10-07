@@ -7,7 +7,10 @@ export default defineConfig({
   plugins: [reactRefresh()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@api': path.resolve(__dirname, 'src/api'),
+      '@hooks': path.resolve(__dirname, 'src/hooks')
     }
   },
   server: {

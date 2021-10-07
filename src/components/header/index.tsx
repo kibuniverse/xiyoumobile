@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { filter } from 'remeda'
-import useControlHeader from '../../hooks/useScroll'
+import useControlHeader from '@hooks/useScroll'
 import { menu } from '../../menu'
 import './index.less'
 

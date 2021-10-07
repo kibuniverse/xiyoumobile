@@ -1,8 +1,8 @@
 import { message, Calendar } from 'antd'
 import * as React from 'react'
 import { useParams } from 'react-router'
-import { fetchActivityDetail } from '../../api/activity'
-import { IActivityDetail } from '../../api/activity/interface'
+import { fetchActivityDetail } from '@api/activity'
+import { IActivityDetail } from '@api/activity/interface'
 import './index.less'
 
 const ActivityDetail: React.FC = () => {

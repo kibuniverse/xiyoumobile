@@ -6,7 +6,10 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@api/*": ["src/api/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
     },
     "allowJs": false,
     "skipLibCheck": false,

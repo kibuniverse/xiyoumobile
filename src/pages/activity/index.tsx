@@ -1,9 +1,9 @@
 import { Menu, message, Pagination, Spin } from 'antd'
 import * as React from 'react'
-import { fetchActivityList } from '../../api/activity'
-import { IActivityItem } from '../../api/activity/interface'
+import { fetchActivityList } from '@api/activity'
+import { IActivityItem } from '@api/activity/interface'
 
-import { ActivityHome } from '../../components/activity-home'
+import { ActivityHome } from '@components/activity-home'
 import './index.less'
 
 const parseGroupName = (key: number) => {

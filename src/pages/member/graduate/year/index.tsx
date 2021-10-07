@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import { Popover } from 'antd'
-import { getgraduateMemberInfo } from '../../../../api/member'
-import { GraduateMemberInfo } from '../../../../api/member/interface'
+import { getgraduateMemberInfo } from '@api/member'
+import { GraduateMemberInfo } from '@api/member/interface'
 import './index.less'
 
 // 成员

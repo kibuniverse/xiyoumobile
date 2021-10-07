@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useParams } from 'react-router'
 import { message } from 'antd'
-import { getMemberDetail } from '../../api/member/index'
-import { GetMemberMessage } from '../../api/member/interface'
+import { getMemberDetail } from '@api/member/index'
+import { GetMemberMessage } from '@api/member/interface'
 import './index.less'
 
 const UserDetail: React.FC = () => {

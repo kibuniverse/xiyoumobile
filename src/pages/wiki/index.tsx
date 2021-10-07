@@ -1,7 +1,7 @@
 import { Menu, message, Pagination, Spin } from 'antd'
 import * as React from 'react'
-import { IWikiItem } from '../../api/wiki/interface'
-import { fetchWikiGroup, fetchWikiList, IGroupType } from '../../api/wiki'
+import { IWikiItem } from '@api/wiki/interface'
+import { fetchWikiGroup, fetchWikiList, IGroupType } from '@api/wiki'
 import { WikiHome } from '../../components/wiki-home'
 import './index.less'
 

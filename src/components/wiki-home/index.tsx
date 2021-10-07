@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 
 import './index.less'
 import { Link } from 'react-router-dom'
-import { IWikiItem } from '../../api/wiki/interface'
+import { IWikiItem } from '@api/wiki/interface'
 
 interface option {
   row?: number
