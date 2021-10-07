@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
-import { getGraduateMemberInfo } from '@/api/member'
-import { GraduateMemberInfo } from '@/api/member/interface'
+import { getGraduateMemberInfo } from '@api/member'
+import { GraduateMemberInfo } from '@api/member/interface'
 import './index.less'
 
 // 成员
@@ -29,12 +29,8 @@ const Member: React.FC = () => {
                   <img src={graduateImg as string} alt="" />
                   <div className="user-info">
                     <div className="name">{name}</div>
-                    <div className="team">{team}</div>
                     <div className="compony">{company}</div>
                   </div>
-                  {/* <Popover content={signature} trigger="hover">
-                    <p className="motto">{signature}</p>
-                  </Popover> */}
                 </div>
               </Link>
             </div>
