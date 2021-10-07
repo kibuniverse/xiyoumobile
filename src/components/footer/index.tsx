@@ -19,8 +19,13 @@ const Footer: React.FC = () => {
           <h3>关于我们</h3>
           <div className="footer_relation">
             <div className="relation">
-              <span className="title">新浪微博</span>
-              <span className="text">@西邮移动应用开发实验室</span>
+              <span className="title">bilibili</span>
+              <a
+                className="text"
+                href="https://space.bilibili.com/522089976?from=search&seid=14762351147115538165&spm_id_from=333.337.0.0"
+              >
+                西邮3G实验室
+              </a>
             </div>
             <div className="relation">
               <span className="title">交流QQ</span>
