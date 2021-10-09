@@ -30,13 +30,13 @@ const Item: FC<IWikiItem> = (props) => (
   </div>
 )
 export const WikiHome: FC<IWikiItem[] & option> = (props) => {
-  const title = props.title || '小组 · wiki'
+  const title = props.title || '实验室wiki'
   const row = props.row || 2
   const produceItem = () => {
     const res = []
     for (let i = 0; i < row; i += 1) {
       res.push(
-        <div className="wiki-row">
+        <div key={i} className="wiki-row">
           <Item {...props[0 + i * row]} />
           <Item {...props[1 + i * row]} />
           <Item {...props[2 + i * row]} />

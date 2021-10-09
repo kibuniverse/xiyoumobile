@@ -8,7 +8,7 @@ import './index.less'
 
 const UserDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const [data, setData] = React.useState<GetMemberMessage | null>(null)
+  const [data, setData] = React.useState<GetMemberMessage>()
   React.useEffect(() => {
     getMemberDetail(id).then((res) => {
       if (res) {

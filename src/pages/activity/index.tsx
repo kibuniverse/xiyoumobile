@@ -1,10 +1,10 @@
-import { Menu, message, Pagination, Spin } from 'antd'
+import { Menu, message, Pagination, Spin, Timeline } from 'antd'
 import * as React from 'react'
 import { fetchActivityList } from '@api/activity'
 import { IActivityItem } from '@api/activity/interface'
-
-import { ActivityHome } from '@components/activity-home'
+import { ClockCircleOutlined } from '@ant-design/icons'
 import './index.less'
+import ActivityItem from '@/components/activity-item'
 
 const parseGroupName = (key: number) => {
   if (key === 6 || key === 3) {
@@ -32,6 +32,7 @@ const Activity: React.FC = () => {
       if (res) {
         setTotalCount((res?.pageInfo.totalCount || 18) - 18)
         setDataList(res?.dataList || [])
+        console.log(res.dataList)
         return
       }
       message.error('服务器开了点小差...')
@@ -45,7 +46,24 @@ const Activity: React.FC = () => {
       </div>
       <Spin spinning={loading}>
         <div className="activity-body">
-          <ActivityHome {...dataList} />
+          {Boolean(dataList.length) && (
+            <Timeline mode="alternate">
+              <Timeline.Item>
+                <ActivityItem activityInfo={dataList[0]} />
+              </Timeline.Item>
+              <Timeline.Item color="green">
+                <ActivityItem activityInfo={dataList[1]} />
+              </Timeline.Item>
+              <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
+                <ActivityItem activityInfo={dataList[2]} />
+              </Timeline.Item>
+              <Timeline.Item color="red">Network problems being solved 2015-09-01</Timeline.Item>
+              <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+              <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
+                Technical testing 2015-09-01
+              </Timeline.Item>
+            </Timeline>
+          )}
         </div>
         <div className="activity-bottom">
           <Pagination

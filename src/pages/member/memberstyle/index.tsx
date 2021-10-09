@@ -13,7 +13,7 @@ const Member: React.FC = () => {
 
   return (
     <div>
-      <div className="content">
+      <div className="member-content">
         <div className="theme">
           <div>移动应用开发实验室</div>
         </div>
