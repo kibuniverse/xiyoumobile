@@ -35,18 +35,18 @@ const UserDetail: React.FC = () => {
                 <ApartmentOutlined />
                 <span className="info-item">{data.classGrade}</span>
               </div>
-              <div>
-                <HomeOutlined />
-                <span className="info-item">{data.company}</span>
-              </div>
-              <div>
-                {data.signature && (
-                  <>
-                    <TagsOutlined />
-                    <span className="info-item">{data.signature}</span>
-                  </>
-                )}
-              </div>
+              {data.company && (
+                <div>
+                  <HomeOutlined />
+                  <span className="info-item">{data.company}</span>
+                </div>
+              )}
+              {data.signature && (
+                <div>
+                  <TagsOutlined />
+                  <span className="info-item">{data.signature}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>

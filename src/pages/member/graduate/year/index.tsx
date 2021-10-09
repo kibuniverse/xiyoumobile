@@ -29,7 +29,7 @@ const Member: React.FC = () => {
                   <img src={graduateImg as string} alt="" />
                   <div className="user-info">
                     <div className="name">{name}</div>
-                    <div className="compony">{company}</div>
+                    {company && <div className="compony">{company}</div>}
                   </div>
                 </div>
               </Link>
