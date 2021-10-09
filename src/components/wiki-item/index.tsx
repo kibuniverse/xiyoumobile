@@ -1,5 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
-import { Card } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
 import React, { FC } from 'react'
 import { IWikiItem } from '@api/wiki'

@@ -2,7 +2,7 @@
   "name": "xiyoumobile",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 3000",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "prepare": "husky install",

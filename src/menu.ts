@@ -6,6 +6,7 @@ import Activity from './pages/activity'
 import ActivityDetail from './pages/activity-detail'
 import WikiDetail from './pages/wiki-detail'
 import UserDetail from './pages/user-detail'
+import AboutUs from './pages/about-us'
 
 export const menu = [
   {
@@ -33,6 +34,12 @@ export const menu = [
     title: '成员',
     component: Member,
     exact: false
+  },
+  {
+    key: 'aboutUs',
+    path: '/about',
+    title: '关于我们',
+    component: AboutUs
   },
   {
     key: 'join',
