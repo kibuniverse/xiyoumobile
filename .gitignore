@@ -1,4 +1,4 @@
-src/api
+src/api/*/index.ts
 node_modules
 .DS_Store
 dist
