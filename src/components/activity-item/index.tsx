@@ -8,10 +8,16 @@ type ActivityItemProps = {
   activityInfo: IActivityItem
 }
 const ActivityItem: React.FC<ActivityItemProps> = (props) => {
+  const [opacity, setOpacity] = React.useState(0)
+  React.useEffect(() => {
+    setTimeout(() => {
+      setOpacity(1)
+    }, 500)
+  }, [])
   const { title, pubTime, summary, img, id } = props.activityInfo || {}
   return (
     <div>
-      <div key={id} className="activity-item">
+      <div key={id} style={{ opacity }} className="activity-item">
         <div className="item-desc">
           <div className="item-title">
             <Link to={`/activity-detail/${id}`}>

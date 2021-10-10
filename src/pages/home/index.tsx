@@ -1,36 +1,28 @@
 import * as React from 'react'
-import { Carousel, message } from 'antd'
+import { Carousel } from 'antd'
+import { CaretRightOutlined } from '@ant-design/icons'
 import { fetchActivityList } from '@api/activity'
 import { fetchWikiList } from '@api/wiki'
 import { IWikiItem } from '@api/wiki/interface'
 import { IActivityItem } from '@api/activity/interface'
 import { WikiHome } from '@components/wiki-home'
+import LazyLoad from 'react-lazyload'
 import './index.less'
 import ActivityItem from '@/components/activity-item'
+import { Link } from 'react-router-dom'
 
 const Home: React.FC = () => {
   const [activityList, setActivityList] = React.useState<IActivityItem[]>([])
   const [wikiList, setWikiList] = React.useState<IWikiItem[]>([])
-  const groupImageList = [
-    'https://pic1.zhimg.com/v2-20741c653f3bbb02f917dc4ee7a50532_r.jpg?source=172ae18b',
-    'https://mobile.xiyou.edu.cn/src/images/web.jpg',
-    'https://mobile.xiyou.edu.cn/src/images/android.jpg'
-  ]
-  // 获取activity
+
   React.useEffect(() => {
-    fetchActivityList({ size: 6 }).then((res) => {
-      if (res) {
-        setActivityList(res.dataList)
-        return
+    Promise.allSettled([fetchActivityList({ size: 6 }), fetchWikiList({ size: 6 })]).then((res) => {
+      if (res[0].status === 'fulfilled' && res[0].value) {
+        setActivityList(res[0].value.dataList)
       }
-      message.error('服务器游离中...')
-    })
-    fetchWikiList({ size: 6 }).then((res) => {
-      if (res) {
-        setWikiList(res.dataList)
-        return
+      if (res[1].status === 'fulfilled' && res[1].value) {
+        setWikiList(res[1].value.dataList)
       }
-      message.error('服务器游离中...')
     })
   }, [])
 
@@ -45,14 +37,22 @@ const Home: React.FC = () => {
         </Carousel>
       </div>
       <div className="content">
-        <div className="activity-home-container">
-          <div className="title">实验室动态</div>
-          <div className="list-wrapper">
-            {activityList.map((item) => (
-              <ActivityItem key={item.id} activityInfo={item} />
-            ))}
+        <LazyLoad height={3000}>
+          <div className="activity-home-container">
+            <div className="title">实验室动态</div>
+            <div className="list-wrapper">
+              {activityList.map((item) => (
+                <ActivityItem key={item.id} activityInfo={item} />
+              ))}
+            </div>
+            <div className="activity-more">
+              <Link to={`/activity`}>
+                <span className="text">查看更多</span>
+                <CaretRightOutlined style={{ fontSize: '22px', color: '#08c' }} />
+              </Link>
+            </div>
           </div>
-        </div>
+        </LazyLoad>
         <WikiHome {...wikiList} row={1} />
       </div>
     </div>
