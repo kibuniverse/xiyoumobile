@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 					</div>
 				</div>
 				<div className="footer_content text_content">
-					Copydight @<span>{nowTime.getFullYear()}</span>
+					Copyright @<span>{nowTime.getFullYear()}</span>
 					西安邮电大学移动应用开发实验室 All rights reserved.
 				</div>
 			</div>
