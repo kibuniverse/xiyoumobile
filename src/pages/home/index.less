@@ -52,6 +52,7 @@
     margin-bottom: 80px;
     .wiki-home-wrapper,
     .activity-home-container {
+      overflow: hidden;
       width: 70%;
       margin: 30px auto;
       .title {
@@ -59,12 +60,22 @@
         font-weight: bold;
         margin-bottom: 30px;
       }
+      .activity-more {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .text {
+          font-size: 22px;
+          margin-right: 8px;
+          color: #3e8bff;
+        }
+      }
     }
     .wiki-home-wrapper .list-wrapper {
       display: flex;
       flex-wrap: wrap;
       .more-wiki {
-        background-color: #f5f5f5;
+        background-color: #eee;
         margin: 10px 20px;
         transition: ease all 0.3s;
         width: 300px;
@@ -75,7 +86,9 @@
         justify-content: center;
         color: hsl(0, 0%, 80%);
         cursor: pointer;
-        
+      }
+      .more-wiki:hover{
+        background-color: #e5e5e5;
       }
     }
   }
