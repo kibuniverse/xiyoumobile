@@ -47,8 +47,10 @@
     line-height: 36px;
     margin-left: 90px;
   }
+
   .content {
     margin-bottom: 80px;
+    .wiki-home-wrapper,
     .activity-home-container {
       width: 70%;
       margin: 30px auto;
@@ -56,6 +58,24 @@
         font-size: 30px;
         font-weight: bold;
         margin-bottom: 30px;
+      }
+    }
+    .wiki-home-wrapper .list-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      .more-wiki {
+        background-color: #f5f5f5;
+        margin: 10px 20px;
+        transition: ease all 0.3s;
+        width: 300px;
+        padding-bottom: 20px;
+        font-size: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: hsl(0, 0%, 80%);
+        cursor: pointer;
+        
       }
     }
   }
