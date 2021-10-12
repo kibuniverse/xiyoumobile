@@ -5,3 +5,5 @@ dist
 dist-ssr
 *.local
 vite.config.ts
+package-lock.json
+.gitignore
