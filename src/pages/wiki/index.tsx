@@ -2,8 +2,8 @@ import { Menu, message, Pagination, Spin } from 'antd'
 import * as React from 'react'
 import { IWikiItem } from '@api/wiki/interface'
 import { fetchWikiGroup, fetchWikiList, IGroupType } from '@api/wiki'
-import { WikiHome } from '../../components/wiki-home'
 import './index.less'
+import { WikiItem } from '@/components/wiki-item'
 
 const parseGroupName = (key: number) => {
   if (key === 6 || key === 3) {
@@ -13,9 +13,10 @@ const parseGroupName = (key: number) => {
     1: 'Android',
     2: 'iOS',
     4: '前端',
-    5: '后台'
+    5: '后台',
   }[key]
 }
+const PageLoadItemCount = Math.ceil((window.innerWidth - 400) / 300) * 2
 const Wiki: React.FC = () => {
   const [dataList, setDataList] = React.useState<IWikiItem[]>([])
   const [pageNum, setPageNum] = React.useState(1)
@@ -32,9 +33,9 @@ const Wiki: React.FC = () => {
   React.useEffect(() => {
     setLoading(true)
     fetchWikiList({
-      size: 6,
+      size: PageLoadItemCount,
       pageNum,
-      type: selectGroup[0] === 'all' ? undefined : selectGroup[0]
+      type: selectGroup[0] === 'all' ? undefined : selectGroup[0],
     }).then((res) => {
       setLoading(false)
       if (res) {
@@ -68,21 +69,26 @@ const Wiki: React.FC = () => {
                 (item) =>
                   parseGroupName(item.id) && (
                     <Menu.Item key={item.id}>{parseGroupName(item.id)}</Menu.Item>
-                  )
+                  ),
               )}
             </Menu>
           </div>
-          <WikiHome {...dataList} />
-        </div>
-        <div className="wiki-bottom">
-          <Pagination
-            current={pageNum}
-            total={totalCount}
-            hideOnSinglePage
-            pageSize={6}
-            showSizeChanger={false}
-            onChange={(e) => setPageNum(e)}
-          />
+          <div className="title">实验室动态</div>
+          <div className="list-wrapper">
+            {dataList.map((item) => (
+              <WikiItem key={item.id} {...item} />
+            ))}
+          </div>
+          <div className="wiki-bottom">
+            <Pagination
+              current={pageNum}
+              total={totalCount}
+              hideOnSinglePage
+              pageSize={PageLoadItemCount}
+              showSizeChanger={false}
+              onChange={(e) => setPageNum(e)}
+            />
+          </div>
         </div>
       </Spin>
     </div>
