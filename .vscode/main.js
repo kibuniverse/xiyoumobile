@@ -3,5 +3,5 @@
 // 'Reload Window' or 'Restart Extension Host' after edit...
 
 Script.onActivate((_ctx) => {
-	window.showInformationMessage('Hello World!')
+  window.showInformationMessage('Hello World!')
 })
