@@ -2,6 +2,8 @@ import * as React from 'react'
 import { getGraduateMemberInfo } from '@/api/member'
 import Year from '../year/index'
 import './index.less'
+// import { RightOutlined } from '@ant-design/icons'
+// import arrow from './img/arrow.png'
 
 // 成员
 const Graduate: React.FC = () => {
@@ -15,48 +17,17 @@ const Graduate: React.FC = () => {
     })
   }, [])
   const yearling = [
-    { id: 2017, index: 0 },
-    { id: 2016, index: 1 },
-    { id: 2015, index: 2 },
-    { id: 2014, index: 3 },
-    { id: 2013, index: 4 },
-    { id: 2012, index: 5 },
-    { id: 2011, index: 6 },
-    { id: 2010, index: 7 },
-    { id: 2009, index: 8 },
+    { id: 2017, index: 0, click: true },
+    { id: 2016, index: 1, click: false },
+    { id: 2015, index: 2, click: false },
+    { id: 2014, index: 3, click: false },
+    { id: 2013, index: 4, click: false },
+    { id: 2012, index: 5, click: false },
+    { id: 2011, index: 6, click: false },
+    { id: 2010, index: 7, click: false },
+    { id: 2009, index: 8, click: false },
   ]
   return (
-    // <div className="graduate">
-    //   <div className="yearContent">
-    //     {yearling.map((item) => (
-    //       <Link
-    //         key={item.id}
-    //         to={`${url}/${item.id}`}
-    //         className="year"
-    //         style={{
-    //           backgroundColor: state === item.index ? '#2e6acc' : 'white',
-    //           color: state === item.index ? 'white' : 'black',
-    //           opacity: state === item.index ? '0.8' : '1',
-    //           // border: state === item.index ? '1px solid white' : 'black',
-    //         }}
-    //         onClick={() => {
-    //           setState(item.index)
-    //         }}
-    //       >
-    //         <span>{item.id}</span>
-    //       </Link>
-    //     ))}
-    //   </div>
-    //   <div className="graduateMessage">
-    //     <Switch>
-    //       {yearling.map((item) => (
-    //         <Route key={item.id} path={`${path}/${item.id}`} component={year} />
-    //       ))}
-    //       <Redirect to={`${path}/2017`} />
-    //     </Switch>
-    //   </div>
-    // </div>
-
     <div className="graduate">
       <div className="yearContent">
         {yearling.map((item) => (
@@ -64,9 +35,11 @@ const Graduate: React.FC = () => {
             key={item.id}
             className="year"
             style={{
-              backgroundColor: state === item.index ? '#2e6acc' : 'white',
-              color: state === item.index ? 'white' : 'black',
-              opacity: state === item.index ? '0.8' : '1',
+              backgroundColor: state === item.index ? 'rgb(247, 245, 245)' : 'white',
+              color: state === item.index ? '#2e6acc' : 'black',
+              fontWeight: state === item.index ? 'bold' : 'normal',
+              // borderRadius: state === item.index ? '24px 0 25px 0' : '0',
+              borderLeft: state === item.index ? '2px solid #2e6acc' : '',
             }}
             onClick={() => {
               setState(item.index);
@@ -79,7 +52,6 @@ const Graduate: React.FC = () => {
       </div>
       <div className="graduateMessage">
         <div>
-          {/* {group} */}
           <Year dataYear={group} clicked={group} />
         </div>
       </div>

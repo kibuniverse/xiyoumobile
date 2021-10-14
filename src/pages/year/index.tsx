@@ -19,16 +19,16 @@ const Year: React.FC<{clicked:number, dataYear:number}> = (props) => {
   return (
     <div className="graduateMess">
       {list.map((item) => {
-          const { username, name, graduateImg, company } = item
+          const { name, graduateImg, company } = item
           return (
             <div key={item.name} className="wrapperMess">
-                <div className="wrapperPersonMess">
-                  <div className="imgBox"><img src={graduateImg as string} alt="" /></div>
-                  <div className="user-info">
-                    <div className="name">{name}</div>
-                    {company && <div className="compony">{company}</div>}
-                  </div>
+              <div className="wrapperPersonMess">
+                <div className="imgBox"><img src={graduateImg as string} alt="" /></div>
+                <div className="user-info">
+                  <div className="name">{name}</div>
+                  {company && <div className="compony">{company}</div>}
                 </div>
+              </div>
             </div>
           )
         })}

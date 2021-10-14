@@ -19,9 +19,6 @@ const Member: React.FC = () => {
           onClick={() => {
             setState(0)
           }}
-          onMouseMove={() => {
-            setState(0)
-          }}
         >
           毕业生
         </Link>
@@ -29,9 +26,6 @@ const Member: React.FC = () => {
           to={`${url}/memberstyle`}
           className={state === 1 ? 'memberClick' : 'member-item'}
           onClick={() => {
-            setState(1)
-          }}
-          onMouseMove={() => {
             setState(1)
           }}
         >
