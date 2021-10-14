@@ -5,6 +5,7 @@ import Footer from '../footer'
 import Header from '../header'
 import { BackTop } from 'antd'
 import { VerticalAlignTopOutlined } from '@ant-design/icons'
+import './index.less'
 
 const style = {
   height: 40,

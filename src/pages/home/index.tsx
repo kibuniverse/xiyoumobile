@@ -10,6 +10,7 @@ import './index.less'
 
 import LazyLoad from 'react-lazyload'
 import { Link } from 'react-router-dom'
+import Footer from '@/components/footer'
 import ActivityItem from '@/components/activity-item'
 
 const Home: React.FC = () => {
@@ -60,13 +61,14 @@ const Home: React.FC = () => {
           <div className="list-wrapper">
             {wikiList.map((item) => (
               <WikiHomeItem key={item.id} {...item} />
-              ))}
+            ))}
             <Link to="/wiki" className="more-wiki" title="查看更多">
               <EllipsisOutlined style={{ verticalAlign: 'middle' }} />
             </Link>
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   )
 }
