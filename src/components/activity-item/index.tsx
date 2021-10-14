@@ -9,10 +9,16 @@ type ActivityItemProps = {
 }
 const ActivityItem: React.FC<ActivityItemProps> = (props) => {
   const [opacity, setOpacity] = React.useState(0)
+  const timer = React.useRef<number | null>(null)
   React.useEffect(() => {
-    setTimeout(() => {
+    timer.current = setTimeout(() => {
       setOpacity(1)
     }, 500)
+    return () => {
+      if (timer.current) {
+        clearTimeout(timer.current)
+      }
+    }
   }, [])
   const { title, pubTime, summary, img, id } = props.activityInfo || {}
   return (
