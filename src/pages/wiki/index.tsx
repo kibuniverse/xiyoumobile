@@ -10,6 +10,7 @@ const parseGroupName = (key: number) => {
     return null
   }
   return {
+    0: '全部',
     1: 'Android',
     2: 'iOS',
     4: '前端',
@@ -58,7 +59,9 @@ const Wiki: React.FC = () => {
             <Menu
               mode="horizontal"
               defaultSelectedKeys={['all']}
+              inlineCollapsed={false}
               selectedKeys={selectGroup}
+              disabledOverflow
               onSelect={(item) => {
                 setSelectGroup([item.key as string])
                 setPageNum(1)
