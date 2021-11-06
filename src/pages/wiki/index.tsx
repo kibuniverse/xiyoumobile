@@ -17,6 +17,7 @@ const parseGroupName = (key: number) => {
     5: '后台',
   }[key]
 }
+// test
 const PageLoadItemCount = Math.ceil((window.innerWidth - 400) / 300) * 2
 const Wiki: React.FC = () => {
   const [dataList, setDataList] = React.useState<IWikiItem[]>([])
