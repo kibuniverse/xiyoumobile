@@ -2,8 +2,6 @@ import * as React from 'react'
 import { getGraduateMemberInfo } from '@/api/member'
 import Year from '../year/index'
 import './index.less'
-// import { RightOutlined } from '@ant-design/icons'
-// import arrow from './img/arrow.png'
 
 // 成员
 const Graduate: React.FC = () => {
@@ -38,22 +36,21 @@ const Graduate: React.FC = () => {
               backgroundColor: state === item.index ? 'rgb(247, 245, 245)' : 'white',
               color: state === item.index ? '#2e6acc' : 'black',
               fontWeight: state === item.index ? 'bold' : 'normal',
-              // borderRadius: state === item.index ? '24px 0 25px 0' : '0',
-              borderLeft: state === item.index ? '2px solid #2e6acc' : '',
             }}
             onClick={() => {
               setState(item.index);
               setGroup(item.id);
             }}
+            // onMouseMove={() => {
+            //   setState(item.index)
+            // }}
           >
             <span>{item.id}</span>
           </div>
         ))}
       </div>
       <div className="graduateMessage">
-        <div>
-          <Year dataYear={group} clicked={group} />
-        </div>
+        <Year dataYear={group} clicked={group} />
       </div>
     </div>
   )

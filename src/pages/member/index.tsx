@@ -10,7 +10,7 @@ const Member: React.FC = () => {
   const [state, setState] = React.useState(0);
 
   return (
-    <div className="wrapperMax">
+    <div className="wrapper-max">
       <div className="wrapper" />
       <div className="member-router">
         <Link

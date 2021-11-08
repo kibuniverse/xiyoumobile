@@ -1,20 +1,21 @@
 .graduate{
-    width: 85%;
+    width: 80%;
     margin: auto;
     display: flex; 
     .yearContent{
-        width: 120px;
-        height: 450px;
+        background-color: rgb(247, 245, 245);
+        width: 140px;
+        height: 500px;
         text-align: center;
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        // border-left: 5px solid #2e6acc;
+        border-left: 3px solid #2e6acc;
         position: relative;
         .year{
-            font-size: 22px;
+            font-size: 26px;
             flex: 1;
-            line-height: 50px;
+            line-height: calc(500px / 9);
             position: relative;
             border-radius: 0 5px 5px 0;
             img{
@@ -24,17 +25,20 @@
                 top: 16px;
             }
         }
-        .year::before{
-            position: absolute;
-            content: '';
-            left: 0px;
-            // width: 2px;
-            height: 0;
-            bottom: 50%;
-            // background-color: #2e6acc;
-            border-left: 2px solid #2e6acc;
-            transition: 0.3s all linear;
+        .year:hover{
+            background-color: rgb(247, 245, 245);
+            cursor: pointer;
         }
+        // .year::before{
+        //     position: absolute;
+        //     content: '';
+        //     left: 0px;
+        //     height: 0;
+        //     bottom: 50%;
+        //     // background-color: #2e6acc;
+        //     border-left: 4px solid #2e6acc;
+        //     transition: 0.3s all linear;
+        // }
         .year:hover::before{
             bottom: 0;
             height: 100%;
@@ -48,6 +52,9 @@
     }
     .graduateMessage{
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 100%); 
+        justify-content: center;
         background-color: rgb(247, 245, 245);
     }
 }

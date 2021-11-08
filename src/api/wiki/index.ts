@@ -1,6 +1,6 @@
 import { get } from '../../common/services'
 import { FetchWikiListReq, IWikiItem, IWikeDetail } from './interface'
-import { IPageInfo } from '../../common/Inteface'
+import { IPageInfo } from '../../common/inteface'
 
 export interface IGroupType {
   count: number
