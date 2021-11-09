@@ -7,3 +7,10 @@ export interface IPageInfo {
   hasNextPage: boolean
   totalPage: number
 }
+
+export enum TeamNameEnum {
+  iOS,
+  Android,
+  Web,
+  Server
+}

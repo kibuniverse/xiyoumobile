@@ -1,3 +1,5 @@
+import { TeamNameEnum } from '@/common/inteface';
+
 export interface MemberInfo {
   username: string
   name: string
@@ -11,7 +13,7 @@ export interface GetMemberInfoRes {
   dataList: MemberInfo[]
 }
 export interface GetMemberInfoReq {
-  team: 'iOS' | 'Web' | 'Android' | 'Server'
+  team: TeamNameEnum
   size: number
 }
 export interface GetGraduateMemberInfoRes {
