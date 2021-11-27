@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
+import { BackTop } from 'antd'
+import { VerticalAlignTopOutlined } from '@ant-design/icons'
 import { menu } from '@/menu'
 import Footer from '../footer'
 import Header from '../header'
-import { BackTop } from 'antd'
-import { VerticalAlignTopOutlined } from '@ant-design/icons'
 
 const style = {
   height: 40,
@@ -14,7 +14,7 @@ const style = {
   backgroundColor: '#1088e9',
   color: '#fff',
   textAlign: 'center',
-  fontSize: 14
+  fontSize: 14,
 }
 const Layout: React.FC = () => (
   <BrowserRouter>

@@ -51,40 +51,40 @@ const restful = [
     methods: 'get',
     formatParams(params: { [x: string]: unknown }) {
       return pickBy(params, NotEmptyOrNullOrUndefined)
-    }
+    },
   },
   {
     methods: 'post',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     formatParams(params: { [x: string]: unknown }) {
       return pickBy(params, NotEmptyOrNullOrUndefined)
-    }
+    },
   },
   {
     methods: 'put',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     formatParams(params: { [x: string]: unknown }) {
       return pickBy(params, NotEmptyOrNullOrUndefined)
-    }
+    },
   },
   {
     methods: 'delete',
     alias: 'del',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     formatParams(params: { [x: string]: unknown }) {
       return pickBy(params, NotEmptyOrNullOrUndefined)
-    }
-  }
+    },
+  },
 ]
 
 const http = {
-  request: req
+  request: req,
 }
 
 restful.forEach((item) => {
@@ -94,7 +94,7 @@ restful.forEach((item) => {
   http[item.alias || method] = <D>(
     url: string,
     data?: { [x: string]: unknown },
-    options: IHttpFetchOptions = {}
+    options: IHttpFetchOptions = {},
   ) => {
     const { errorMsg, silent } = options
 
@@ -122,7 +122,7 @@ restful.forEach((item) => {
               resp.reason ||
               resp.prompts ||
               resp.message ||
-              '服务器开小差了，请您稍后再试'
+              '服务器开小差了，请您稍后再试',
           )
         }
 

@@ -14,59 +14,59 @@ export const menu = [
     path: '/',
     title: '主页',
     component: Home,
-    opacity: false
+    opacity: false,
   },
   {
     key: 'activity',
     path: '/activity',
     title: '动态',
-    component: Activity
+    component: Activity,
   },
   {
     key: 'wiki',
     path: '/wiki',
     title: 'wiki',
-    component: Wiki
+    component: Wiki,
   },
   {
     key: 'member',
     path: '/member',
     title: '成员',
     component: Member,
-    exact: false
+    exact: false,
   },
   {
     key: 'aboutUs',
     path: '/about',
     title: '关于我们',
-    component: AboutUs
+    component: AboutUs,
   },
   {
     key: 'join',
     path: '/join',
     title: '加入我们',
     component: Join,
-    notInMenu: true
+    notInMenu: true,
   },
   {
     key: 'ActivityDetail',
     path: '/activity-detail/:id',
     title: '活动详细页面',
     component: ActivityDetail,
-    notInMenu: true
+    notInMenu: true,
   },
   {
     key: 'wikiDetail',
     path: '/wiki-detail/:id',
     title: 'wiki详细页面',
     component: WikiDetail,
-    notInMenu: true
+    notInMenu: true,
   },
   {
     key: 'UserDetail',
     path: '/user-detail/:id',
     title: '用户详细页面',
     component: UserDetail,
-    notInMenu: true
-  }
+    notInMenu: true,
+  },
 ]

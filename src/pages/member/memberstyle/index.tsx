@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link, Route, Switch, Redirect, useRouteMatch } from 'react-router-dom'
 import './index.less'
-import Android from './android'
+import Android from './Android'
 import ios from '../memberstyle/ios'
 import Web from '../memberstyle/web'
 import Server from '../memberstyle/server'

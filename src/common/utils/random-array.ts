@@ -5,8 +5,6 @@
  */
 export default function randomArr<T>(arr: T[]): T[] {
   const newArr = arr.slice()
-  newArr.sort(function () {
-    return 0.5 - Math.random()
-  })
+  newArr.sort(() => 0.5 - Math.random())
   return newArr
 }

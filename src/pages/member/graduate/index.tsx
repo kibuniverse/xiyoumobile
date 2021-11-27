@@ -25,7 +25,7 @@ const Member: React.FC = () => {
     { id: 2012, index: 5 },
     { id: 2011, index: 6 },
     { id: 2010, index: 7 },
-    { id: 2009, index: 8 }
+    { id: 2009, index: 8 },
   ]
   return (
     <div className="graduate">
@@ -37,7 +37,7 @@ const Member: React.FC = () => {
             className={item.id === 2009 ? 'years' : 'year'}
             style={{
               backgroundColor: state === item.index ? '#2e6acc' : 'white',
-              color: state === item.index ? 'white' : '#2e6acc'
+              color: state === item.index ? 'white' : '#2e6acc',
             }}
             onClick={(e) => {
               setState(item.index)

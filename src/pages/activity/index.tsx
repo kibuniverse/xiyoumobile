@@ -14,7 +14,7 @@ const parseGroupName = (key: number) => {
     1: 'Android',
     2: 'iOS',
     4: '前端',
-    5: '后台'
+    5: '后台',
   }[key]
 }
 const Activity: React.FC = () => {
@@ -26,7 +26,7 @@ const Activity: React.FC = () => {
   React.useEffect(() => {
     setLoading(true)
     fetchActivityList({
-      size: 6
+      size: 6,
     }).then((res) => {
       setLoading(false)
       if (res) {

@@ -52,7 +52,7 @@ const UserDetail: React.FC = () => {
         </div>
       )}
 
-      <div className="wiki"></div>
+      <div className="wiki" />
     </div>
   )
 }
