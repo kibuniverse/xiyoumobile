@@ -7,8 +7,10 @@ import './index.less'
 const Footer: React.FC = () => {
   const nowTime = new Date()
   const [iconState, setIconState] = useState(false)
+  let height = window.screen.height
+  let workHeight = document.body.scrollHeight
   return (
-    <footer className="footerAll">
+    <footer className={['footerAll', workHeight < height ? 'footer_position' : 'null'].join(' ')}>
       <div className="footer_wrap">
         <div className="footer_top">
           <Link to="">
@@ -16,7 +18,7 @@ const Footer: React.FC = () => {
           </Link>
         </div>
         <div className="middle_box">
-          <h3>关于我们</h3>
+          <h2>关于我们</h2>
           <div className="footer_relation">
             <div className="relation">
               <span className="title">bilibili</span>
@@ -43,11 +45,16 @@ const Footer: React.FC = () => {
                 <WechatFilled />
               </span>
             </div>
+            <div className="relation">
+              <span className="title">官方微博</span>
+              <span className="text">西邮移动应用开发实验室</span>
+            </div>
             <img
-              className={iconState ? 'qr_code' : 'null'}
+              className={iconState ? 'qr_code' : 'ql_code'}
               src="https://mobile.xupt.edu.cn/src/images/wxqr.jpg"
             />
           </div>
+          <img className="img_code" src="https://mobile.xupt.edu.cn/src/images/wxqr.jpg" />
         </div>
         <div className="footer_content text_content">
           Copyright @

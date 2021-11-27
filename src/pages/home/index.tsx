@@ -10,13 +10,15 @@ import './index.less'
 
 import LazyLoad from 'react-lazyload'
 import { Link } from 'react-router-dom'
+import Footer from '@/components/footer'
 import ActivityItem from '@/components/activity-item'
 
+const PageLoadItemCount = Math.ceil((window.innerWidth - 400) / 300) * 2;
 const Home: React.FC = () => {
   const [activityList, setActivityList] = React.useState<IActivityItem[]>([])
   const [wikiList, setWikiList] = React.useState<IWikiItem[]>([])
   React.useEffect(() => {
-    Promise.allSettled([fetchActivityList({ size: 6 }), fetchWikiList({ size: 5 })]).then((res) => {
+    Promise.allSettled([fetchActivityList({ size: 6 }), fetchWikiList({ size: 6 })]).then((res) => {
       if (res[0].status === 'fulfilled' && res[0].value) {
         setActivityList(res[0].value.dataList)
       }
@@ -60,13 +62,17 @@ const Home: React.FC = () => {
           <div className="list-wrapper">
             {wikiList.map((item) => (
               <WikiHomeItem key={item.id} {...item} />
-              ))}
-            <Link to="/wiki" className="more-wiki" title="查看更多">
-              <EllipsisOutlined style={{ verticalAlign: 'middle' }} />
-            </Link>
+            ))}
+            <div className="more-wiki">
+              <Link to="/wiki">
+                <span className="text">查看更多</span>
+                <CaretRightOutlined style={{ fontSize: '22px', color: '#08c' }} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

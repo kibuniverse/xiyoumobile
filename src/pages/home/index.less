@@ -74,21 +74,16 @@
     .wiki-home-wrapper .list-wrapper {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       .more-wiki {
-        background-color: #eee;
-        margin: 10px 20px;
-        transition: ease all 0.3s;
-        width: 300px;
-        padding-bottom: 20px;
-        font-size: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: hsl(0, 0%, 80%);
-        cursor: pointer;
-      }
-      .more-wiki:hover{
-        background-color: #e5e5e5;
+        width: 100%;
+        text-align: right;
+        display: block;
+        .text {
+          font-size: 22px;
+          margin-right: 8px;
+          color: #3e8bff;
+        }
       }
     }
   }

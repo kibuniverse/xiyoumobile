@@ -10,12 +10,14 @@ const parseGroupName = (key: number) => {
     return null
   }
   return {
+    0: '全部',
     1: 'Android',
     2: 'iOS',
     4: '前端',
     5: '后台',
   }[key]
 }
+
 const PageLoadItemCount = Math.ceil((window.innerWidth - 400) / 300) * 2
 const Wiki: React.FC = () => {
   const [dataList, setDataList] = React.useState<IWikiItem[]>([])
@@ -58,7 +60,9 @@ const Wiki: React.FC = () => {
             <Menu
               mode="horizontal"
               defaultSelectedKeys={['all']}
+              inlineCollapsed={false}
               selectedKeys={selectGroup}
+              disabledOverflow
               onSelect={(item) => {
                 setSelectGroup([item.key as string])
                 setPageNum(1)

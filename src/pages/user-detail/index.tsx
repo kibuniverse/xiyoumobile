@@ -4,6 +4,7 @@ import { message, Avatar } from 'antd'
 import { getMemberDetail } from '@api/member/index'
 import { GetMemberMessage } from '@api/member/interface'
 import { UserOutlined, ApartmentOutlined, TagsOutlined, HomeOutlined } from '@ant-design/icons'
+import Footer from '@/components/footer'
 import './index.less'
 
 const UserDetail: React.FC = () => {
@@ -19,41 +20,43 @@ const UserDetail: React.FC = () => {
     })
   }, [id])
   return (
-    <div className="user-detail-wrap">
-      {data && (
-        <div className="info">
-          <div className="avatar">
-            <Avatar size={300} src={data.mienImg} />
-          </div>
-          <div className="user-info">
-            <div>
+    <>
+      <div className="user-detail-wrap">
+        {data && (
+          <div className="info">
+            <div className="avatar">
+              <Avatar size={300} src={data.mienImg} />
+            </div>
+            <div className="user-info">
               <div>
-                <UserOutlined />
-                <span className="info-item">{data.name}</span>
-              </div>
-              <div>
-                <ApartmentOutlined />
-                <span className="info-item">{data.classGrade}</span>
-              </div>
-              {data.company && (
                 <div>
-                  <HomeOutlined />
-                  <span className="info-item">{data.company}</span>
+                  <UserOutlined />
+                  <span className="info-item">{data.name}</span>
                 </div>
-              )}
-              {data.signature && (
                 <div>
-                  <TagsOutlined />
-                  <span className="info-item">{data.signature}</span>
+                  <ApartmentOutlined />
+                  <span className="info-item">{data.classGrade}</span>
                 </div>
-              )}
+                {data.company && (
+                  <div>
+                    <HomeOutlined />
+                    <span className="info-item">{data.company}</span>
+                  </div>
+                )}
+                {data.signature && (
+                  <div>
+                    <TagsOutlined />
+                    <span className="info-item">{data.signature}</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      <div className="wiki" />
-    </div>
+        )}
+        <div className="wiki"></div>
+      </div>
+      <Footer></Footer>
+    </>
   )
 }
 

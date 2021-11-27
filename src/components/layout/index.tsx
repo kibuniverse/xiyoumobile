@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
-import { BackTop } from 'antd'
-import { VerticalAlignTopOutlined } from '@ant-design/icons'
 import { menu } from '@/menu'
 import Footer from '../footer'
 import Header from '../header'
+import { BackTop } from 'antd'
+import { VerticalAlignTopOutlined } from '@ant-design/icons'
+import './index.less'
 
 const style = {
   height: 40,
