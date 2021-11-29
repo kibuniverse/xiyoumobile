@@ -4,7 +4,7 @@ import {
   GetMemberInfoReq,
   GetGraduateMemberInfoRes,
   GetGraduateMemberReq,
-  GetMemberMessage
+  GetMemberMessage,
 } from './interface'
 
 /**
