@@ -1,7 +1,7 @@
 import { Col, Row, Space } from 'antd'
 import React, { FC } from 'react'
 import './index.less'
-import { Introduction, summary } from './introduction'
+import { Introduction, summary } from '@/common/constant.ts'
 
 const Summary: FC<{ summary: string }> = ({ summary }) => (
   <>
