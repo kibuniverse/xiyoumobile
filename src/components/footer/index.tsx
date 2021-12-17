@@ -57,7 +57,8 @@ const Footer: React.FC = () => {
           <img className="img_code" src="https://mobile.xupt.edu.cn/src/images/wxqr.jpg" />
         </div>
         <div className="footer_content text_content">
-          Copyright @<span>{nowTime.getFullYear()}</span>
+          Copyright @
+          <span>{nowTime.getFullYear()}</span>
           西安邮电大学移动应用开发实验室 All rights reserved.
         </div>
       </div>

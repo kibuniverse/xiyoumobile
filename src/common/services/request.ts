@@ -11,7 +11,7 @@ export const request = <R>(
   method = 'GET',
   data: any = {},
   headers: any = {},
-  base = ''
+  base = '',
 ): Promise<R> => {
   let body = data
   method = method.toUpperCase()
@@ -19,7 +19,7 @@ export const request = <R>(
 
   headers = {
     'X-Requested-With': 'XMLHttpRequest',
-    ...headers
+    ...headers,
   }
 
   if (FormData && data instanceof FormData) {
@@ -38,8 +38,8 @@ export const request = <R>(
       method,
       body,
       headers,
-      credentials: 'same-origin'
-    })
+      credentials: 'same-origin',
+    }),
   )
     .then((response) => {
       if (response.status >= 200 && response.status < 300) {

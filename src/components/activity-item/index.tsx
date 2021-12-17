@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { IActivityItem } from '@/api/activity/interface'
 import { Link } from 'react-router-dom'
 import { Image } from 'antd'
+import { IActivityItem } from '@/api/activity/interface'
 import './index.less'
 
 type ActivityItemProps = {

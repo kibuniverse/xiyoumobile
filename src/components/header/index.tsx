@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   const location = useLocation()
   const res = realMenu.find((item) => item.path === location.pathname)?.opacity
   const { hidden, scrollerHeight, opacity, setOpacity } = useControlHeader(
-    typeof res === 'undefined' ? true : res
+    typeof res === 'undefined' ? true : res,
   )
   return (
     <header

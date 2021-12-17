@@ -15,7 +15,7 @@ const style = {
   backgroundColor: '#1088e9',
   color: '#fff',
   textAlign: 'center',
-  fontSize: 14
+  fontSize: 14,
 }
 const Layout: React.FC = () => (
   <BrowserRouter>
